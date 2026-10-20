@@ -1,0 +1,645 @@
+[
+  {
+    "arm": "baseline",
+    "seed": 123,
+    "returncode": 0,
+    "run_dir": "/vol/smoke/m4-L2048-s2-k4-baseline-seed123__20260930T043738Z",
+    "result": {
+      "run_id": "m4-L2048-s2-k4-baseline-seed123",
+      "arm": "baseline",
+      "seed": 123,
+      "protocol_conformant": false,
+      "status": "complete",
+      "split_overlap": {
+        "heldout_in_train": 0,
+        "heldout_in_validation": 0,
+        "validation_in_train": 0
+      },
+      "epochs_run": 2,
+      "early_stopped": false,
+      "time_capped": false,
+      "PRIMARY_test_accuracy_at_best_validation": 0.0001953125,
+      "best_validation_accuracy": 0.0003125,
+      "best_validation_epoch": 0,
+      "test_loss_at_best_validation": 8.390410537719726,
+      "final_validation_accuracy": 0.0003125,
+      "test_accuracy_final": 0.0005078125,
+      "final_five_validation_mean": 0.0003125,
+      "jump_epoch_validation_above_0.30": null,
+      "wall_seconds": 33.3
+    },
+    "manifest": {
+      "run_id": "m4-L2048-s2-k4-baseline-seed123",
+      "run_folder": "m4-L2048-s2-k4-baseline-seed123__20260930T043738Z",
+      "started_utc": "20260930T043738Z",
+      "arm": "baseline",
+      "arm_kwargs": {},
+      "seed": 123,
+      "data_seeds": {
+        "train": 843828734,
+        "validation": 3062119789,
+        "heldout_test": 2683282782
+      },
+      "split_sizes": {
+        "train": 2000,
+        "validation": 200,
+        "heldout_test": 200
+      },
+      "data_cache_hit_at_start": {
+        "train": false,
+        "validation": false,
+        "heldout_test": false
+      },
+      "data_cache_dir": "/content/zoology_cache",
+      "protocol": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 2,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000,
+        "superblock_group": 11,
+        "n_superblocks": 12,
+        "coarse_pairs_per_query": 34,
+        "selection_rule": "best validation accuracy, earliest epoch on ties",
+        "primary_metric": "held-out test accuracy of the best-validation checkpoint",
+        "train_data_order": "fixed each epoch (zoology DataLoader shuffle=False)"
+      },
+      "protocol_conformant": false,
+      "overrides": {
+        "epochs": 2,
+        "n_train": 2000,
+        "n_val": 200,
+        "n_test": 200
+      },
+      "max_hours": 0.0,
+      "code": {
+        "commit": "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+        "dirty": true,
+        "hier_nsa_sha256": "6d436d7165daf4de583bbb1a7d57a29454fc387891d1d3e3bf95be2849f7cc3f",
+        "script_sha256": "83543299843aa7a0bb345bce038fb85caff5b7beb5c8b04cbd4b8026aef463c4",
+        "zoology_dir": "/zoology",
+        "zoology_pin": "1ad20d1",
+        "zoology_patched": true
+      },
+      "env": {
+        "python": "3.11.12",
+        "torch": "2.14.0+cu130",
+        "cuda": "13.0",
+        "device": "cuda",
+        "device_name": "NVIDIA L40S",
+        "hostname": "modal",
+        "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+        "argv": [
+          "/repo/experiments/m4_routing_arms.py",
+          "--arm",
+          "baseline",
+          "--seed",
+          "123",
+          "--out-root",
+          "/vol/smoke",
+          "--commit",
+          "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+          "--dirty",
+          "1",
+          "--report-run-dir",
+          "/tmp/rundir-baseline.txt",
+          "--device",
+          "cuda",
+          "--cache-dir",
+          "/content/zoology_cache",
+          "--epochs",
+          "2",
+          "--n-train",
+          "2000",
+          "--n-val",
+          "200",
+          "--n-test",
+          "200"
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "epoch": 0,
+        "valid_accuracy": 0.0003125,
+        "valid_loss": 8.387605667114258,
+        "lr": 0.00032,
+        "elapsed_s": 17.8,
+        "train_epoch_s": 16.23
+      },
+      {
+        "epoch": 1,
+        "valid_accuracy": 0.0003125,
+        "valid_loss": 8.358548164367676,
+        "lr": 0.00016,
+        "elapsed_s": 32.3,
+        "train_epoch_s": 13.96
+      }
+    ],
+    "projection": {
+      "train_s": 139.6,
+      "val_s": 5.399999999999956,
+      "setup_s": 1.0300000000000047,
+      "total_h": 2.455638888888888
+    }
+  },
+  {
+    "arm": "router",
+    "seed": 123,
+    "returncode": 0,
+    "run_dir": "/vol/smoke/m4-L2048-s2-k4-router-seed123__20260930T043820Z",
+    "result": {
+      "run_id": "m4-L2048-s2-k4-router-seed123",
+      "arm": "router",
+      "seed": 123,
+      "protocol_conformant": false,
+      "status": "complete",
+      "split_overlap": {
+        "heldout_in_train": 0,
+        "heldout_in_validation": 0,
+        "validation_in_train": 0
+      },
+      "epochs_run": 2,
+      "early_stopped": false,
+      "time_capped": false,
+      "PRIMARY_test_accuracy_at_best_validation": 0.0001953125,
+      "best_validation_accuracy": 0.0003125,
+      "best_validation_epoch": 0,
+      "test_loss_at_best_validation": 8.390468521118164,
+      "final_validation_accuracy": 0.0003125,
+      "test_accuracy_final": 0.0004296875,
+      "final_five_validation_mean": 0.0003125,
+      "jump_epoch_validation_above_0.30": null,
+      "wall_seconds": 31.6
+    },
+    "manifest": {
+      "run_id": "m4-L2048-s2-k4-router-seed123",
+      "run_folder": "m4-L2048-s2-k4-router-seed123__20260930T043820Z",
+      "started_utc": "20260930T043820Z",
+      "arm": "router",
+      "arm_kwargs": {
+        "router_gate": true
+      },
+      "seed": 123,
+      "data_seeds": {
+        "train": 843828734,
+        "validation": 3062119789,
+        "heldout_test": 2683282782
+      },
+      "split_sizes": {
+        "train": 2000,
+        "validation": 200,
+        "heldout_test": 200
+      },
+      "data_cache_hit_at_start": {
+        "train": true,
+        "validation": true,
+        "heldout_test": true
+      },
+      "data_cache_dir": "/content/zoology_cache",
+      "protocol": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 2,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000,
+        "superblock_group": 11,
+        "n_superblocks": 12,
+        "coarse_pairs_per_query": 34,
+        "selection_rule": "best validation accuracy, earliest epoch on ties",
+        "primary_metric": "held-out test accuracy of the best-validation checkpoint",
+        "train_data_order": "fixed each epoch (zoology DataLoader shuffle=False)"
+      },
+      "protocol_conformant": false,
+      "overrides": {
+        "epochs": 2,
+        "n_train": 2000,
+        "n_val": 200,
+        "n_test": 200
+      },
+      "max_hours": 0.0,
+      "code": {
+        "commit": "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+        "dirty": true,
+        "hier_nsa_sha256": "6d436d7165daf4de583bbb1a7d57a29454fc387891d1d3e3bf95be2849f7cc3f",
+        "script_sha256": "83543299843aa7a0bb345bce038fb85caff5b7beb5c8b04cbd4b8026aef463c4",
+        "zoology_dir": "/zoology",
+        "zoology_pin": "1ad20d1",
+        "zoology_patched": true
+      },
+      "env": {
+        "python": "3.11.12",
+        "torch": "2.14.0+cu130",
+        "cuda": "13.0",
+        "device": "cuda",
+        "device_name": "NVIDIA L40S",
+        "hostname": "modal",
+        "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+        "argv": [
+          "/repo/experiments/m4_routing_arms.py",
+          "--arm",
+          "router",
+          "--seed",
+          "123",
+          "--out-root",
+          "/vol/smoke",
+          "--commit",
+          "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+          "--dirty",
+          "1",
+          "--report-run-dir",
+          "/tmp/rundir-router.txt",
+          "--device",
+          "cuda",
+          "--cache-dir",
+          "/content/zoology_cache",
+          "--epochs",
+          "2",
+          "--n-train",
+          "2000",
+          "--n-val",
+          "200",
+          "--n-test",
+          "200"
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "epoch": 0,
+        "valid_accuracy": 0.0003125,
+        "valid_loss": 8.387657165527344,
+        "lr": 0.00032,
+        "elapsed_s": 16.2,
+        "train_epoch_s": 15.35
+      },
+      {
+        "epoch": 1,
+        "valid_accuracy": 0.0003125,
+        "valid_loss": 8.3585844039917,
+        "lr": 0.00016,
+        "elapsed_s": 30.6,
+        "train_epoch_s": 13.86
+      }
+    ],
+    "projection": {
+      "train_s": 138.6,
+      "val_s": 5.400000000000027,
+      "setup_s": 0.30999999999999694,
+      "total_h": 2.4369722222222228
+    }
+  },
+  {
+    "arm": "maxpool",
+    "seed": 123,
+    "returncode": 0,
+    "run_dir": "/vol/smoke/m4-L2048-s2-k4-maxpool-seed123__20260930T043900Z",
+    "result": {
+      "run_id": "m4-L2048-s2-k4-maxpool-seed123",
+      "arm": "maxpool",
+      "seed": 123,
+      "protocol_conformant": false,
+      "status": "complete",
+      "split_overlap": {
+        "heldout_in_train": 0,
+        "heldout_in_validation": 0,
+        "validation_in_train": 0
+      },
+      "epochs_run": 2,
+      "early_stopped": false,
+      "time_capped": false,
+      "PRIMARY_test_accuracy_at_best_validation": 0.00015625,
+      "best_validation_accuracy": 0.0003515625,
+      "best_validation_epoch": 0,
+      "test_loss_at_best_validation": 8.390547218322753,
+      "final_validation_accuracy": 0.0001953125,
+      "test_accuracy_final": 0.0004296875,
+      "final_five_validation_mean": 0.0002734375,
+      "jump_epoch_validation_above_0.30": null,
+      "wall_seconds": 31.3
+    },
+    "manifest": {
+      "run_id": "m4-L2048-s2-k4-maxpool-seed123",
+      "run_folder": "m4-L2048-s2-k4-maxpool-seed123__20260930T043900Z",
+      "started_utc": "20260930T043900Z",
+      "arm": "maxpool",
+      "arm_kwargs": {
+        "superblock_pool": "max"
+      },
+      "seed": 123,
+      "data_seeds": {
+        "train": 843828734,
+        "validation": 3062119789,
+        "heldout_test": 2683282782
+      },
+      "split_sizes": {
+        "train": 2000,
+        "validation": 200,
+        "heldout_test": 200
+      },
+      "data_cache_hit_at_start": {
+        "train": true,
+        "validation": true,
+        "heldout_test": true
+      },
+      "data_cache_dir": "/content/zoology_cache",
+      "protocol": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 2,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000,
+        "superblock_group": 11,
+        "n_superblocks": 12,
+        "coarse_pairs_per_query": 34,
+        "selection_rule": "best validation accuracy, earliest epoch on ties",
+        "primary_metric": "held-out test accuracy of the best-validation checkpoint",
+        "train_data_order": "fixed each epoch (zoology DataLoader shuffle=False)"
+      },
+      "protocol_conformant": false,
+      "overrides": {
+        "epochs": 2,
+        "n_train": 2000,
+        "n_val": 200,
+        "n_test": 200
+      },
+      "max_hours": 0.0,
+      "code": {
+        "commit": "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+        "dirty": true,
+        "hier_nsa_sha256": "6d436d7165daf4de583bbb1a7d57a29454fc387891d1d3e3bf95be2849f7cc3f",
+        "script_sha256": "83543299843aa7a0bb345bce038fb85caff5b7beb5c8b04cbd4b8026aef463c4",
+        "zoology_dir": "/zoology",
+        "zoology_pin": "1ad20d1",
+        "zoology_patched": true
+      },
+      "env": {
+        "python": "3.11.12",
+        "torch": "2.14.0+cu130",
+        "cuda": "13.0",
+        "device": "cuda",
+        "device_name": "NVIDIA L40S",
+        "hostname": "modal",
+        "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+        "argv": [
+          "/repo/experiments/m4_routing_arms.py",
+          "--arm",
+          "maxpool",
+          "--seed",
+          "123",
+          "--out-root",
+          "/vol/smoke",
+          "--commit",
+          "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+          "--dirty",
+          "1",
+          "--report-run-dir",
+          "/tmp/rundir-maxpool.txt",
+          "--device",
+          "cuda",
+          "--cache-dir",
+          "/content/zoology_cache",
+          "--epochs",
+          "2",
+          "--n-train",
+          "2000",
+          "--n-val",
+          "200",
+          "--n-test",
+          "200"
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "epoch": 0,
+        "valid_accuracy": 0.0003515625,
+        "valid_loss": 8.3877534866333,
+        "lr": 0.00032,
+        "elapsed_s": 15.9,
+        "train_epoch_s": 15.1
+      },
+      {
+        "epoch": 1,
+        "valid_accuracy": 0.0001953125,
+        "valid_loss": 8.358687400817871,
+        "lr": 0.00016,
+        "elapsed_s": 30.2,
+        "train_epoch_s": 13.73
+      }
+    ],
+    "projection": {
+      "train_s": 137.3,
+      "val_s": 5.699999999999985,
+      "setup_s": 0.2300000000000022,
+      "total_h": 2.4203611111111107
+    }
+  },
+  {
+    "arm": "router+maxpool",
+    "seed": 123,
+    "returncode": 0,
+    "run_dir": "/vol/smoke/m4-L2048-s2-k4-router+maxpool-seed123__20260930T043939Z",
+    "result": {
+      "run_id": "m4-L2048-s2-k4-router+maxpool-seed123",
+      "arm": "router+maxpool",
+      "seed": 123,
+      "protocol_conformant": false,
+      "status": "complete",
+      "split_overlap": {
+        "heldout_in_train": 0,
+        "heldout_in_validation": 0,
+        "validation_in_train": 0
+      },
+      "epochs_run": 2,
+      "early_stopped": false,
+      "time_capped": false,
+      "PRIMARY_test_accuracy_at_best_validation": 0.0001953125,
+      "best_validation_accuracy": 0.0003515625,
+      "best_validation_epoch": 0,
+      "test_loss_at_best_validation": 8.390546798706055,
+      "final_validation_accuracy": 0.0001953125,
+      "test_accuracy_final": 0.00046875,
+      "final_five_validation_mean": 0.0002734375,
+      "jump_epoch_validation_above_0.30": null,
+      "wall_seconds": 31.6
+    },
+    "manifest": {
+      "run_id": "m4-L2048-s2-k4-router+maxpool-seed123",
+      "run_folder": "m4-L2048-s2-k4-router+maxpool-seed123__20260930T043939Z",
+      "started_utc": "20260930T043939Z",
+      "arm": "router+maxpool",
+      "arm_kwargs": {
+        "router_gate": true,
+        "superblock_pool": "max"
+      },
+      "seed": 123,
+      "data_seeds": {
+        "train": 843828734,
+        "validation": 3062119789,
+        "heldout_test": 2683282782
+      },
+      "split_sizes": {
+        "train": 2000,
+        "validation": 200,
+        "heldout_test": 200
+      },
+      "data_cache_hit_at_start": {
+        "train": true,
+        "validation": true,
+        "heldout_test": true
+      },
+      "data_cache_dir": "/content/zoology_cache",
+      "protocol": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 2,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000,
+        "superblock_group": 11,
+        "n_superblocks": 12,
+        "coarse_pairs_per_query": 34,
+        "selection_rule": "best validation accuracy, earliest epoch on ties",
+        "primary_metric": "held-out test accuracy of the best-validation checkpoint",
+        "train_data_order": "fixed each epoch (zoology DataLoader shuffle=False)"
+      },
+      "protocol_conformant": false,
+      "overrides": {
+        "epochs": 2,
+        "n_train": 2000,
+        "n_val": 200,
+        "n_test": 200
+      },
+      "max_hours": 0.0,
+      "code": {
+        "commit": "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+        "dirty": true,
+        "hier_nsa_sha256": "6d436d7165daf4de583bbb1a7d57a29454fc387891d1d3e3bf95be2849f7cc3f",
+        "script_sha256": "83543299843aa7a0bb345bce038fb85caff5b7beb5c8b04cbd4b8026aef463c4",
+        "zoology_dir": "/zoology",
+        "zoology_pin": "1ad20d1",
+        "zoology_patched": true
+      },
+      "env": {
+        "python": "3.11.12",
+        "torch": "2.14.0+cu130",
+        "cuda": "13.0",
+        "device": "cuda",
+        "device_name": "NVIDIA L40S",
+        "hostname": "modal",
+        "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.36",
+        "argv": [
+          "/repo/experiments/m4_routing_arms.py",
+          "--arm",
+          "router+maxpool",
+          "--seed",
+          "123",
+          "--out-root",
+          "/vol/smoke",
+          "--commit",
+          "0cac1065f35d7fc7059cea51429fc8f5982a23a7",
+          "--dirty",
+          "1",
+          "--report-run-dir",
+          "/tmp/rundir-router_maxpool.txt",
+          "--device",
+          "cuda",
+          "--cache-dir",
+          "/content/zoology_cache",
+          "--epochs",
+          "2",
+          "--n-train",
+          "2000",
+          "--n-val",
+          "200",
+          "--n-test",
+          "200"
+        ]
+      }
+    },
+    "metrics": [
+      {
+        "epoch": 0,
+        "valid_accuracy": 0.0003515625,
+        "valid_loss": 8.387740135192871,
+        "lr": 0.00032,
+        "elapsed_s": 16.1,
+        "train_epoch_s": 15.26
+      },
+      {
+        "epoch": 1,
+        "valid_accuracy": 0.0001953125,
+        "valid_loss": 8.358647346496582,
+        "lr": 0.00016,
+        "elapsed_s": 30.5,
+        "train_epoch_s": 13.89
+      }
+    ],
+    "projection": {
+      "train_s": 138.9,
+      "val_s": 5.09999999999998,
+      "setup_s": 0.3300000000000036,
+      "total_h": 2.437305555555555
+    }
+  }
+]

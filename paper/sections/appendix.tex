@@ -1,0 +1,83 @@
+\section{All runs}
+\label{app:runs}
+
+Table~\ref{tab:allruns} lists every run on the M5 profile together with the dense diagnostics of
+\S\ref{sec:dense}; it is generated from the committed run records by \texttt{paper/make\_tables.py}.
+Table~\ref{tab:m4runs} lists every run on the earlier M4 profile, whose checkpoints are analysed in
+\S\ref{sec:selection} and \S\ref{sec:fixes}. The two profiles are never pooled. Not listed: smoke tests, and one M4 launch cancelled at about epoch 13 when its
+launching machine lost its session, which the protocol classes as incomplete.
+
+\input{sections/appendix_runs}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Model (seed) & recall & parent hit & key-block hit & recall $\mid$ hit & recall $\mid$ miss \\
+\midrule
+$S_1{=}2$ (123) & 0.803 & 0.888 & 0.594 & 0.999 & 0.516 \\
+$S_1{=}2$ (312) & 0.715 & 0.815 & 0.489 & 0.997 & 0.446 \\
+$S_1{=}12$ (123) & 0.920 & 1.000 & 0.729 & 1.000 & 0.705 \\
+$S_1{=}2$ (231), never learned & 0.008 & 0.707 & 0.274 & 0.014 & 0.005 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Selection diagnostic on the earlier M4-profile checkpoints.} Retrieval layer, full held-out split. \emph{Parent hit}: the key's super-block was selected by at least one of the 4 heads;
+\emph{key-block hit}: the key's fine block was among the $K{=}4$ blocks selected by at least one head. Recall conditioned on a key-block hit
+was 0.997--1.000 for every model here that learned.}
+\label{tab:selection_m4}
+\end{table}
+
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{llrrrr}
+\toprule
+Experiment & Model & seed & held-out & best val.\ (epoch) & transition \\
+\midrule
+repair screen & $S_1{=}2$ baseline & 123 & 0.803 & 0.803 (45) & 35 \\
+repair screen & $S_1{=}2$ router gate & 123 & 0.652 & 0.651 (40) & 39 \\
+repair screen & $S_1{=}2$ max-pool & 123 & 0.648 & 0.648 (46) & 42 \\
+repair screen & $S_1{=}2$ both & 123 & 0.751 & 0.752 (28) & 28 \\
+follow-up & dense & 123 & 0.992 & 0.992 (29) & 28 \\
+follow-up & $S_1{=}12$ & 123 & 0.920 & 0.920 (57) & 25 \\
+follow-up & $S_1{=}2$ & 312 & 0.715 & 0.715 (58) & 40 \\
+follow-up & $S_1{=}2$ & 231 & 0.008 & 0.007 (54) & never \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Every run on the M4 profile} (float32, legacy data). All four repair-screen arms trained on
+identical data from identical initial weights. Each run used its own data; seeds 231 and 312 are not paired with
+seed 123.}
+\label{tab:m4runs}
+\end{table}
+
+\section{Compute}
+\label{app:compute}
+
+Every run used a single NVIDIA L40S GPU, on AWS (\texttt{g6e.xlarge}) or Modal, one run per GPU at a time. M5-profile
+runs took 0.9--4.6 hours each. Software versions differed slightly between machines (PyTorch 2.14.0 or 2.14.1 with
+CUDA 13.0; Python 3.11 or 3.13); each run's manifest records its environment. The experiments in this paper used
+roughly \$150 of cloud GPU time; the M5 selection diagnostic (inference only, twelve L40S containers on Modal) cost
+under \$2.
+
+\section{Earlier exploratory results}
+\label{app:history}
+
+Before the protocol of \S\ref{sec:setup} was fixed, the project ran exploratory experiments that report
+\emph{validation} recall from single runs with differing recipes. We list them for context only; none enters the
+results above. At length 128, attention reached 0.998 against 0.097 for a gated convolution, reproducing Zoology's
+recall gap. At length 2048, an unpruned selector ($S_1{=}12$) and dense attention both reached about 0.99 validation
+recall, while two recurrent baselines reached 0.558 and 0.193 (the first with a different learning rate). At length
+4096 every model, including dense attention, failed to learn. An early reading of these runs, that block sparsity
+alone caused the recall loss at length 2048, was retracted once budget sweeps showed recall rising with the budget.
+
+\section{Reproduction}
+\label{app:repro}
+
+Code, frozen protocols, per-run manifests (seeds, SHA-256 split hashes, environment, code commit), per-epoch
+metrics, training logs, the selection-diagnostic scripts (\texttt{experiments/diagnose\_routing.py},
+\texttt{experiments/modal\_diagnose\_m5.py}) and their outputs, and the scripts that regenerate the figures
+and the appendix tables are at
+\url{https://github.com/eumnesia-labs/sparse-attention-recall}. Figures: \texttt{python3 paper/figures/make\_figures.py};
+appendix table: \texttt{python3 paper/make\_tables.py}; each results folder's \texttt{summarize*.py} regenerates its
+summary from raw records. Training a model requires one GPU and the commands recorded in each run's manifest.

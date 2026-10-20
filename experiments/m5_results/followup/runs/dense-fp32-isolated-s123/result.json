@@ -1,0 +1,40 @@
+{
+  "run_id": "m4-L2048-dense-seed123",
+  "arm": "dense",
+  "s1": null,
+  "seed": 123,
+  "protocol_conformant": true,
+  "protocol_profile": "m5-isolated-data-draft-v1",
+  "data_rng": "isolated",
+  "task": "mqar",
+  "status": "complete",
+  "split_overlap": {
+    "heldout_in_train": 0,
+    "heldout_in_validation": 0,
+    "validation_in_train": 0
+  },
+  "heldout_best_window_split": {
+    "in_window": {
+      "accuracy": 1.0,
+      "queries": 168
+    },
+    "out_of_window": {
+      "accuracy": 1.0,
+      "queries": 255832
+    },
+    "window": 32
+  },
+  "epochs_run": 43,
+  "early_stopped": true,
+  "time_capped": false,
+  "futility_stopped": false,
+  "PRIMARY_test_accuracy_at_best_validation": 1.0,
+  "best_validation_accuracy": 1.0,
+  "best_validation_epoch": 42,
+  "test_loss_at_best_validation": 0.002993639577180147,
+  "final_validation_accuracy": 1.0,
+  "test_accuracy_final": 1.0,
+  "final_five_validation_mean": 0.454146875,
+  "jump_epoch_validation_above_0.30": 41,
+  "wall_seconds": 5484.2
+}

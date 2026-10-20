@@ -1,0 +1,35 @@
+\section{Related work}
+\label{sec:related}
+
+\paragraph{Sparse and hierarchical attention.} Fixed sparsity patterns~\cite{child2019sparse,beltagy2020longformer,
+zaheer2020bigbird} and content-based routing~\cite{kitaev2020reformer,roy2021routing} reduce attention's quadratic
+cost; Routing Transformer already reached $O(n^{1.5})$ with content-based clustering~\cite{roy2021routing}.
+Block-level selection is now common: Quest chooses key pages per query at inference time~\cite{tang2024quest}, MoBA
+routes each query to a few trained blocks~\cite{lu2025moba}, Landmark Attention and InfLLM retrieve blocks through
+representative tokens~\cite{mohtashami2023landmark,xiao2024infllm}, DeepSeek Sparse Attention selects tokens with a
+lightweight learned indexer~\cite{deepseek2025v32}, and NSA~\cite{yuan2025nsa} combines compressed, selected and windowed
+branches with trainable sparsity; our selector inherits NSA's three-branch layout. Hierarchical selection is well established: HiP prunes a tree of key blocks without
+training~\cite{lee2025hip}, HISA filters pooled blocks before refining to tokens~\cite{xu2026hisa}, gist-token methods
+learn chunk summaries and recursive summary hierarchies~\cite{mao2026gist}, and HiLS trains chunk-level retrieval scores
+through the language-model loss~\cite{hu2026hils}. Several of these papers vary their selection budget and report
+retrieval-sensitive benchmarks; HiLS evaluates multi-key retrieval in small models at matched sparse budgets. Our
+selector is a simpler member of this family, and we claim no algorithmic novelty. HiLS is closest in spirit; it
+measures retrieval in small models under matched sparse budgets on RULER. We differ in scale and in protocol: one
+synthetic task, but a dense model on byte-identical splits for every comparison, untouched confirmation seeds, and
+every failed run reported. The Sparse Frontier studies sparsity--accuracy trade-offs of training-free methods in
+large pretrained models across tasks and lengths~\cite{nawrot2025sparsefrontier}; our setting is the opposite end:
+models trained from scratch with the selector, at toy scale.
+
+\paragraph{Recall in efficient sequence models.} Zoology introduced MQAR and showed that most of the quality gap
+between attention and gated-convolution models comes from associative recall~\cite{arora2024zoology}. Later work
+traced a trade-off between recall and recurrent state size in linear attention~\cite{arora2024based} and proved and measured that fixed-state
+models copy worse than transformers~\cite{jelassi2024repeat}. Long-context evaluations show that models use
+information unevenly across their inputs~\cite{liu2024lost}. These studies compare architectures; we hold the
+architecture fixed and vary how much of the context a sparse selector may consider.
+
+\paragraph{Efficiency claims and their evaluation.} Kernel-level work such as FlashAttention reports speed with its
+hardware, lengths and baselines stated~\cite{dao2022flashattention}. Some recent commercial reports pair large
+long-context speed-ups with benchmark scores but without a dense model trained under matched
+settings~\cite{subq2026,appen2026}. We do not evaluate those systems, whose mechanisms are not public. Our point is
+methodological: a recall cost can only be attributed to sparsity when a matched dense model is trained on the same
+data, which is the comparison this study is built around.

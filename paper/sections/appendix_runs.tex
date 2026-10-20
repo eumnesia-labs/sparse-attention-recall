@@ -1,0 +1,32 @@
+\begin{table}[h]
+\centering
+\scriptsize
+\begin{tabular}{lrllrrrrr}
+\toprule
+Model & seed & numerics & data & round & held-out & best val. (epoch) & transition & epochs \\
+\midrule
+$S_1{=}2$ & 123 & TF32 & isolated & M5 & 0.705 & 0.704 (53) & 41 & 60 \\
+dense & 123 & TF32 & isolated & M5 & 0.010 & 0.010 (55) & never & 60 \\
+$S_1{=}2$ & 231 & TF32 & isolated & M5 & 0.684 & 0.685 (46) & 40 & 60 \\
+$S_1{=}2$ & 312 & TF32 & isolated & M5 & 0.836 & 0.837 (46) & 35 & 60 \\
+$S_1{=}12$ & 123 & TF32 & isolated & M5 & 0.850 & 0.850 (37) & 26 & 60 \\
+$S_1{=}4$ & 123 & TF32 & isolated & M5 & 0.884 & 0.885 (59) & 34 & 60 \\
+$S_1{=}6$ & 123 & TF32 & isolated & M5 & 0.962 & 0.962 (58) & 29 & 60 \\
+dense & 810001 & TF32 & isolated & M5 & 0.012 & 0.012 (58) & never & 60 \\
+$S_1{=}2$ & 810001 & TF32 & isolated & M5 & 0.578 & 0.578 (59) & 49 & 60 \\
+dense & 810002 & TF32 & isolated & M5 & 1.000 & 1.000 (34) & 33 & 35 \\
+$S_1{=}2$ & 810002 & TF32 & isolated & M5 & 0.709 & 0.709 (42) & 39 & 60 \\
+dense & 810003 & TF32 & isolated & M5 & 0.006 & 0.007 (53) & never & 60 \\
+$S_1{=}2$ & 810003 & TF32 & isolated & M5 & 0.011 & 0.011 (58) & never & 60 \\
+$S_1{=}6$ & 810001 & TF32 & isolated & 2c & 0.937 & 0.937 (56) & 25 & 60 \\
+$S_1{=}6$ & 810002 & TF32 & isolated & 2c & 0.945 & 0.946 (56) & 27 & 60 \\
+$S_1{=}6$ & 810003 & TF32 & isolated & 2c & 0.945 & 0.944 (58) & 26 & 60 \\
+dense & 123 & TF32 & legacy & check & 0.987 & 0.987 (27) & 26 & 28 \\
+dense & 123 & float32 & isolated & check & 1.000 & 1.000 (42) & 41 & 43 \\
+dense & 810001 & float32 & isolated & 2e & --$^\ddagger$ & 0.007 (54) & never & 55 \\
+dense & 810003 & float32 & isolated & 2f & 0.007 & 0.007 (57) & never & 60 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Every run on the M5 profile and its diagnostics, including all non-transitions.} Epochs are zero-based; early stopping at validation recall above 0.98 ends some runs before 60 epochs. $^\ddagger$Stopped by us after 55 of 60 epochs; no held-out score.}
+\label{tab:allruns}
+\end{table}

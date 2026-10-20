@@ -1,0 +1,207 @@
+{
+ "status": "complete",
+ "kinds": {
+  "dense": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.0458,
+   "wall_s": 24.0,
+   "epoch_s": [
+    2.55,
+    2.29,
+    2.29,
+    2.29,
+    2.29,
+    2.29,
+    2.29,
+    2.29
+   ],
+   "gpu_max_mem_gb": 4.359,
+   "timed_epochs": 7
+  },
+  "hier-s2": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.0668,
+   "wall_s": 45.8,
+   "epoch_s": [
+    4.2,
+    3.34,
+    3.34,
+    3.34,
+    3.34,
+    3.34,
+    3.34,
+    3.36
+   ],
+   "gpu_max_mem_gb": 6.399,
+   "timed_epochs": 7
+  },
+  "hier-s4": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.07440000000000001,
+   "wall_s": 45.9,
+   "epoch_s": [
+    4.65,
+    3.73,
+    3.72,
+    3.71,
+    3.72,
+    3.72,
+    3.72,
+    3.76
+   ],
+   "gpu_max_mem_gb": 7.209,
+   "timed_epochs": 7
+  },
+  "hier-s6": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.08199999999999999,
+   "wall_s": 46.0,
+   "epoch_s": [
+    4.95,
+    4.09,
+    4.09,
+    4.09,
+    4.1,
+    4.1,
+    4.15,
+    4.15
+   ],
+   "gpu_max_mem_gb": 8.02,
+   "timed_epochs": 7
+  },
+  "hier-s12": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.10679999999999999,
+   "wall_s": 49.2,
+   "epoch_s": [
+    6.19,
+    5.33,
+    5.33,
+    5.33,
+    5.34,
+    5.39,
+    5.39,
+    5.37
+   ],
+   "gpu_max_mem_gb": 10.451,
+   "timed_epochs": 7
+  }
+ },
+ "concurrency": {
+  "dense": {
+   "1": {
+    "s_per_step": 0.0458,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  },
+  "hier-s2": {
+   "1": {
+    "s_per_step": 0.0668,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  },
+  "hier-s4": {
+   "1": {
+    "s_per_step": 0.07440000000000001,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  },
+  "hier-s6": {
+   "1": {
+    "s_per_step": 0.08199999999999999,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  },
+  "hier-s12": {
+   "1": {
+    "s_per_step": 0.10679999999999999,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  }
+ },
+ "cuda_equivalence": {
+  "ok": true,
+  "tail": "C1 integer hashing\n  PASS  splitmix64 bit-identical\n  PASS  priority order key bit-identical\n  PASS  bit packing identical\nC2 bucket lookup\n  PASS  code space 6: retained sets and occupancy identical  63787 overflowing probes\n  PASS  code space 40: retained sets and occupancy identical  53945 overflowing probes\n  PASS  code space 4294967296: retained sets and occupancy identical  0 overflowing probes\nC3 full module (float64)\n  PASS  logsumexp, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  logsumexp, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n\nALL PASS\n/opt/pytorch/lib/python3.13/site-packages/torch/cuda/__init__.py:68: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.\n  import pynvml  # type: ignore[import]\n"
+ },
+ "workers_by_kind": {
+  "dense": 1,
+  "hier-s2": 1,
+  "hier-s4": 1,
+  "hier-s6": 1,
+  "hier-s12": 1
+ },
+ "smoke_s": 229.8,
+ "estimate": {
+  "hours_per_60_epoch_run": {
+   "dense": 2.08,
+   "hier-s2": 2.95,
+   "hier-s4": 3.27,
+   "hier-s6": 3.58,
+   "hier-s12": 4.62
+  },
+  "workers_by_kind": {
+   "dense": 1,
+   "hier-s2": 1,
+   "hier-s4": 1,
+   "hier-s6": 1,
+   "hier-s12": 1
+  },
+  "throughput": {
+   "dense": 1.0,
+   "hier-s2": 1.0,
+   "hier-s4": 1.0,
+   "hier-s6": 1.0,
+   "hier-s12": 1.0
+  },
+  "phases": [
+   {
+    "phase": "pilot",
+    "runs": 7,
+    "usd": 43.42,
+    "cumulative_usd": 43.42
+   },
+   {
+    "phase": "confirmation (S1=12 assumed)",
+    "runs": 6,
+    "usd": 38.93,
+    "cumulative_usd": 82.36
+   }
+  ],
+  "note": "estimate assuming no early stopping; early stop and the futility rule shorten runs"
+ }
+}

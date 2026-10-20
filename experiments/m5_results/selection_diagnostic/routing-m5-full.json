@@ -1,0 +1,3494 @@
+[
+  {
+    "label": "hier-s2-s123",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s123",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 123,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.70481640625,
+        "recorded_primary": 0.7048203125,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 2.512654733657837,
+          "loss_recorded": 2.5126559734344482
+        },
+        "value_in_window_frac": 0.00065625,
+        "reachable_frac": 1.0,
+        "seconds": 55.3,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.85558203125,
+            "block_hit_any_head": 0.355515625,
+            "block_hit_per_head": [
+              0.25630078125,
+              0.13826953125,
+              0.1461796875,
+              0.19188671875
+            ],
+            "acc_given_block_hit": 0.7235749131982596,
+            "acc_given_block_miss": 0.6944686886319005,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.355515625,
+                "acc": 0.7235749131982596
+              },
+              "1": {
+                "frac": 0.16613671875,
+                "acc": 0.7392019938397875
+              },
+              "2": {
+                "frac": 0.0798359375,
+                "acc": 0.7227223798806145
+              },
+              "3_to_8": {
+                "frac": 0.09166015625,
+                "acc": 0.7361176219901981
+              },
+              "over_8_or_none": {
+                "frac": 0.3068515625,
+                "acc": 0.6504570104641393
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.8263204525318613,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.4907380903700675,
+                "acc_given_hit": 0.8150709663083632,
+                "acc_given_miss": 0.837160751565762,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8165941127694859,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3994092039800995,
+                "acc_given_hit": 0.7728471951905195,
+                "acc_given_miss": 0.8456870020421664,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.5829918952059097,
+                "parent_hit_any_head": 0.7566468283637886,
+                "block_hit_any_head": 0.2842061189700033,
+                "acc_given_hit": 0.5825002630748185,
+                "acc_given_miss": 0.5831870978524275,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17404372401830306,
+                "parent_hit_random_policy": 0.5575674772262573
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.5791601686593889,
+                "parent_hit_any_head": 0.6410500779760874,
+                "block_hit_any_head": 0.2219430485762144,
+                "acc_given_hit": 0.5826935588809369,
+                "acc_given_miss": 0.5781522586392487,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.30608993768692017
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.580634060308857,
+                "parent_hit_any_head": 0.644341205316815,
+                "block_hit_any_head": 0.22355572762076828,
+                "acc_given_hit": 0.594766211275736,
+                "acc_given_miss": 0.5765650969529086,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21014878153800964
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.70481640625,
+                "parent_hit_any_head": 0.85558203125,
+                "block_hit_any_head": 0.355515625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.85914453125,
+            "block_hit_any_head": 0.462625,
+            "block_hit_per_head": [
+              0.40085546875,
+              0.39105859375,
+              0.3922734375,
+              0.38913671875
+            ],
+            "acc_given_block_hit": 0.9855360037827614,
+            "acc_given_block_miss": 0.4631454989532449,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.462625,
+                "acc": 0.9855360037827614
+              },
+              "1": {
+                "frac": 0.1506171875,
+                "acc": 0.8855231080450231
+              },
+              "2": {
+                "frac": 0.06079296875,
+                "acc": 0.6055387778705905
+              },
+              "3_to_8": {
+                "frac": 0.1214296875,
+                "acc": 0.2092260181432156
+              },
+              "over_8_or_none": {
+                "frac": 0.20453515625,
+                "acc": 0.26053742289108306
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.8263204525318613,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6187282764260887,
+                "acc_given_hit": 0.9890511752913445,
+                "acc_given_miss": 0.5622408122408122,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8165941127694859,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5932144831398563,
+                "acc_given_hit": 0.9829062317996505,
+                "acc_given_miss": 0.5740614914217768,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.5829918952059097,
+                "parent_hit_any_head": 0.7189042079133894,
+                "block_hit_any_head": 0.30998594371504623,
+                "acc_given_hit": 0.9835986493005306,
+                "acc_given_miss": 0.4030209778085992,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17404372401830306,
+                "parent_hit_random_policy": 0.5575674772262573
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.5791601686593889,
+                "parent_hit_any_head": 0.7002541442846416,
+                "block_hit_any_head": 0.3111534684918847,
+                "acc_given_hit": 0.9834787451271579,
+                "acc_given_miss": 0.3965285929901057,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.30608993768692017
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.580634060308857,
+                "parent_hit_any_head": 0.7039618015227771,
+                "block_hit_any_head": 0.30950230137222007,
+                "acc_given_hit": 0.9845726198749132,
+                "acc_given_miss": 0.3995763767754797,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21014878153800964
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.70481640625,
+                "parent_hit_any_head": 0.85914453125,
+                "block_hit_any_head": 0.462625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s4-s123",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s4-s123",
+        "arm": "baseline",
+        "s1": 4,
+        "seed": 123,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.88366015625,
+        "recorded_primary": 0.88365625,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.9460480055809021,
+          "loss_recorded": 0.9460489110946655
+        },
+        "value_in_window_frac": 0.00065625,
+        "reachable_frac": 1.0,
+        "seconds": 78.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.8478046875,
+            "block_hit_any_head": 0.25035546875,
+            "block_hit_per_head": [
+              0.13617578125,
+              0.077984375,
+              0.19169921875,
+              0.1314921875
+            ],
+            "acc_given_block_hit": 0.919458270271957,
+            "acc_given_block_miss": 0.8717048184295682,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.25035546875,
+                "acc": 0.919458270271957
+              },
+              "1": {
+                "frac": 0.1295078125,
+                "acc": 0.8647222054654039
+              },
+              "2": {
+                "frac": 0.14722265625,
+                "acc": 0.8829101329300326
+              },
+              "3_to_8": {
+                "frac": 0.30563671875,
+                "acc": 0.8657643495264752
+              },
+              "over_8_or_none": {
+                "frac": 0.16727734375,
+                "acc": 0.8781028886346123
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.8943092755401076,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.41282627956109863,
+                "acc_given_hit": 0.9324132466074554,
+                "acc_given_miss": 0.8675193834439854,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8795432559425097,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.21890547263681592,
+                "acc_given_hit": 0.9132733585858586,
+                "acc_given_miss": 0.8700902335456475,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.8801178335376978,
+                "parent_hit_any_head": 0.9928073690821545,
+                "block_hit_any_head": 0.22333044232437121,
+                "acc_given_hit": 0.9069300301305658,
+                "acc_given_miss": 0.8724080170969791,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.8706672249304662,
+                "parent_hit_random_policy": 0.9587463736534119
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.8787905042453648,
+                "parent_hit_any_head": 0.36331080690810375,
+                "block_hit_any_head": 0.10974412291341766,
+                "acc_given_hit": 0.8960526315789473,
+                "acc_given_miss": 0.8766625575812625,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.030612834286374402,
+                "parent_hit_random_policy": 0.6121798753738403
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.8777476663655526,
+                "parent_hit_any_head": 0.2930270572546995,
+                "block_hit_any_head": 0.10311007871983481,
+                "acc_given_hit": 0.9036295369211514,
+                "acc_given_miss": 0.8747721822541966,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.4202975630760193
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.88366015625,
+                "parent_hit_any_head": 0.8478046875,
+                "block_hit_any_head": 0.25035546875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.99996484375,
+            "block_hit_any_head": 0.72725,
+            "block_hit_per_head": [
+              0.63859375,
+              0.5916015625,
+              0.5885859375,
+              0.6081953125
+            ],
+            "acc_given_block_hit": 0.99813080096253,
+            "acc_given_block_miss": 0.5784400779101742,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.72725,
+                "acc": 0.99813080096253
+              },
+              "1": {
+                "frac": 0.12308984375,
+                "acc": 0.7408206657992447
+              },
+              "2": {
+                "frac": 0.0633046875,
+                "acc": 0.564605701592003
+              },
+              "3_to_8": {
+                "frac": 0.07465234375,
+                "acc": 0.400083721416985
+              },
+              "over_8_or_none": {
+                "frac": 0.011703125,
+                "acc": 0.08311081441922563
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.8943092755401076,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7147004702514823,
+                "acc_given_hit": 0.9983407712552924,
+                "acc_given_miss": 0.6337012087334576,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8795432559425097,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7256426202321725,
+                "acc_given_hit": 0.9983097652716278,
+                "acc_given_miss": 0.5654199722956806,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.8801178335376978,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7349343541585669,
+                "acc_given_hit": 0.9981077561650525,
+                "acc_given_miss": 0.5529730339614126,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.8706672249304662,
+                "parent_hit_random_policy": 0.9587463736534119
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.8787905042453648,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7366141050077976,
+                "acc_given_hit": 0.9980004704775347,
+                "acc_given_miss": 0.5453947368421053,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.030612834286374402,
+                "parent_hit_random_policy": 0.6121798753738403
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.8777476663655526,
+                "parent_hit_any_head": 0.9996128532713898,
+                "block_hit_any_head": 0.7348044909020519,
+                "acc_given_hit": 0.997307106896148,
+                "acc_given_miss": 0.5464720194647202,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.4202975630760193
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.88366015625,
+                "parent_hit_any_head": 0.99996484375,
+                "block_hit_any_head": 0.72725
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s6-s123",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s6-s123",
+        "arm": "baseline",
+        "s1": 6,
+        "seed": 123,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.96200390625,
+        "recorded_primary": 0.96200390625,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.3513539547920227,
+          "loss_recorded": 0.35135396432876587
+        },
+        "value_in_window_frac": 0.00065625,
+        "reachable_frac": 1.0,
+        "seconds": 78.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.95849609375,
+            "block_hit_any_head": 0.4850703125,
+            "block_hit_per_head": [
+              0.19337890625,
+              0.23801171875,
+              0.18437109375,
+              0.16915234375
+            ],
+            "acc_given_block_hit": 0.9631013545072397,
+            "acc_given_block_miss": 0.9609700960385975,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.4850703125,
+                "acc": 0.9631013545072397
+              },
+              "1": {
+                "frac": 0.22336328125,
+                "acc": 0.958377782829961
+              },
+              "2": {
+                "frac": 0.135921875,
+                "acc": 0.964938498678009
+              },
+              "3_to_8": {
+                "frac": 0.10537890625,
+                "acc": 0.9589650442969937
+              },
+              "over_8_or_none": {
+                "frac": 0.050265625,
+                "acc": 0.9659620764687598
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.9665916990390513,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.53514618687385,
+                "acc_given_hit": 0.9648506151142355,
+                "acc_given_miss": 0.9685960591133005,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.9610627418463239,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5652985074626866,
+                "acc_given_hit": 0.9611294462779612,
+                "acc_given_miss": 0.9609759974566842,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.9610012860005384,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5115141908664055,
+                "acc_given_hit": 0.963603940713889,
+                "acc_given_miss": 0.9582759359598372,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.9590192341015422,
+                "parent_hit_any_head": 0.9420955351469994,
+                "block_hit_any_head": 0.37988794547449894,
+                "acc_given_hit": 0.9624448836855709,
+                "acc_given_miss": 0.9569206408345753,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5919251429561602,
+                "parent_hit_random_policy": 0.9022297263145447
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.9571987783369897,
+                "parent_hit_any_head": 0.6291994665978405,
+                "block_hit_any_head": 0.20785477696046803,
+                "acc_given_hit": 0.9604718543046358,
+                "acc_given_miss": 0.9563399402660874,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6304462552070618
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.96200390625,
+                "parent_hit_any_head": 0.95849609375,
+                "block_hit_any_head": 0.4850703125
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.9619296875,
+            "block_hit_per_head": [
+              0.67735546875,
+              0.7564453125,
+              0.66380078125,
+              0.7488359375
+            ],
+            "acc_given_block_hit": 0.9999878174567722,
+            "acc_given_block_miss": 0.002257336343115124,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.9619296875,
+                "acc": 0.9999878174567722
+              },
+              "1": {
+                "frac": 0.02239453125,
+                "acc": 0.0031397174254317113
+              },
+              "2": {
+                "frac": 0.00792578125,
+                "acc": 0.0004928536224741252
+              },
+              "3_to_8": {
+                "frac": 0.0048046875,
+                "acc": 0.0016260162601626016
+              },
+              "over_8_or_none": {
+                "frac": 0.0029453125,
+                "acc": 0.001326259946949602
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.9665916990390513,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9664962856948136,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0028478437754271765,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.9610627418463239,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.96095909342178,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.002654867256637168,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.9610012860005384,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9608966115381165,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0026768642447418736,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.9590192341015422,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.958961474036851,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0014074595355383533,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5919251429561602,
+                "parent_hit_random_policy": 0.9022297263145447
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.9571987783369897,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9573278272465264,
+                "acc_given_hit": 0.9998651988317232,
+                "acc_given_miss": 0.0,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6304462552070618
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.96200390625,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9619296875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s12-s123",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s12-s123",
+        "arm": "baseline",
+        "s1": 12,
+        "seed": 123,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.85008203125,
+        "recorded_primary": 0.85008203125,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 1.2773157739639283,
+          "loss_recorded": 1.277316192150116
+        },
+        "value_in_window_frac": 0.00065625,
+        "reachable_frac": 1.0,
+        "seconds": 77.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.4324375,
+            "block_hit_per_head": [
+              0.24357421875,
+              0.25242578125,
+              0.239234375,
+              0.23530859375
+            ],
+            "acc_given_block_hit": 0.8145053475935828,
+            "acc_given_block_miss": 0.877188635612818,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.4324375,
+                "acc": 0.8145053475935828
+              },
+              "1": {
+                "frac": 0.1998359375,
+                "acc": 0.8850619648930763
+              },
+              "2": {
+                "frac": 0.16487890625,
+                "acc": 0.8687009879409605
+              },
+              "3_to_8": {
+                "frac": 0.1981875,
+                "acc": 0.8771680857773573
+              },
+              "over_8_or_none": {
+                "frac": 0.00466015625,
+                "acc": 0.8407376362112322
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.9024739317113065,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3374088461800586,
+                "acc_given_hit": 0.8660418518219277,
+                "acc_given_miss": 0.9210261052025261,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8552895245992261,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.46850815367606413,
+                "acc_given_hit": 0.8257438884996866,
+                "acc_given_miss": 0.8813338967075113,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.8185094356551126,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.4858689475730478,
+                "acc_given_hit": 0.7908100455496737,
+                "acc_given_miss": 0.8446861729974987,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.8149367527291631,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.46647028244671634,
+                "acc_given_hit": 0.7864041604754829,
+                "acc_given_miss": 0.8398830789217279,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.8149438637243516,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.43812104787714545,
+                "acc_given_hit": 0.7794796269023073,
+                "acc_given_miss": 0.8425968458122799,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.85008203125,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.4324375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.84586328125,
+            "block_hit_per_head": [
+              0.6671171875,
+              0.68384765625,
+              0.6499453125,
+              0.7301953125
+            ],
+            "acc_given_block_hit": 0.9998706942334246,
+            "acc_given_block_miss": 0.02807977901112547,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.84586328125,
+                "acc": 0.9998706942334246
+              },
+              "1": {
+                "frac": 0.04811328125,
+                "acc": 0.07022813996914833
+              },
+              "2": {
+                "frac": 0.031203125,
+                "acc": 0.02729093640460691
+              },
+              "3_to_8": {
+                "frac": 0.05144140625,
+                "acc": 0.0010631027412863544
+              },
+              "over_8_or_none": {
+                "frac": 0.02337890625,
+                "acc": 0.0018379281537176273
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28658203125,
+                "acc": 0.9024739317113065,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9000340761943706,
+                "acc_given_hit": 0.9999848555981281,
+                "acc_given_miss": 0.024543223343332424,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226125,
+                "acc": 0.8552895245992261,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8502971254836926,
+                "acc_given_hit": 0.9999593677623827,
+                "acc_given_miss": 0.033579506115855064,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2612265625,
+                "acc": 0.8185094356551126,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8140084337709723,
+                "acc_given_hit": 0.9997979278418694,
+                "acc_given_miss": 0.025084418716835505,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1352578125,
+                "acc": 0.8149367527291631,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8091896262923814,
+                "acc_given_hit": 0.999678789392912,
+                "acc_given_miss": 0.031481761767822004,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.8149438637243516,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8101260377683142,
+                "acc_given_hit": 0.999734508575373,
+                "acc_given_miss": 0.02650657000453104,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.85008203125,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.84586328125
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s2-s231",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s231",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 231,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.6843828125,
+        "recorded_primary": 0.6843828125,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 2.6469456481933595,
+          "loss_recorded": 2.646947801589966
+        },
+        "value_in_window_frac": 0.00061328125,
+        "reachable_frac": 1.0,
+        "seconds": 69.6,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.85480078125,
+            "block_hit_any_head": 0.3259765625,
+            "block_hit_per_head": [
+              0.24405078125,
+              0.23624609375,
+              0.086671875,
+              0.1882890625
+            ],
+            "acc_given_block_hit": 0.7146434991012582,
+            "acc_given_block_miss": 0.6697478991596638,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.3259765625,
+                "acc": 0.7146434991012582
+              },
+              "1": {
+                "frac": 0.209484375,
+                "acc": 0.7831916163198329
+              },
+              "2": {
+                "frac": 0.1264921875,
+                "acc": 0.8064665554937929
+              },
+              "3_to_8": {
+                "frac": 0.1391328125,
+                "acc": 0.7970969734403953
+              },
+              "over_8_or_none": {
+                "frac": 0.1989140625,
+                "acc": 0.3742586701229331
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2869140625,
+                "acc": 0.8378897208985705,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.39801225323349215,
+                "acc_given_hit": 0.8097078743928303,
+                "acc_given_miss": 0.8565225257825222,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.2271796875,
+                "acc": 0.8195261185047629,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.39664362598438735,
+                "acc_given_hit": 0.7745361539795388,
+                "acc_given_miss": 0.8491023083499573,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2609453125,
+                "acc": 0.533636717463549,
+                "parent_hit_any_head": 0.7910092512200233,
+                "block_hit_any_head": 0.27737193497200685,
+                "acc_given_hit": 0.5600410167845,
+                "acc_given_miss": 0.5235017504609202,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17253974431903235,
+                "parent_hit_random_policy": 0.5575631856918335
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.134046875,
+                "acc": 0.5274507518358783,
+                "parent_hit_any_head": 0.5985546100944166,
+                "block_hit_any_head": 0.22059680615456348,
+                "acc_given_hit": 0.6116248348745046,
+                "acc_given_miss": 0.5036267105361549,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.3056357204914093
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.0909140625,
+                "acc": 0.5262954369682908,
+                "parent_hit_any_head": 0.5946549798057919,
+                "block_hit_any_head": 0.21693735498839908,
+                "acc_given_hit": 0.6123984947514359,
+                "acc_given_miss": 0.5024417009602195,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21009033918380737
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.6843828125,
+                "parent_hit_any_head": 0.85480078125,
+                "block_hit_any_head": 0.3259765625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.861234375,
+            "block_hit_any_head": 0.62692578125,
+            "block_hit_per_head": [
+              0.55305078125,
+              0.5533828125,
+              0.55130859375,
+              0.5500703125
+            ],
+            "acc_given_block_hit": 0.9992086882293931,
+            "acc_given_block_miss": 0.1553393992063409,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.62692578125,
+                "acc": 0.9992086882293931
+              },
+              "1": {
+                "frac": 0.0702734375,
+                "acc": 0.5524180100055587
+              },
+              "2": {
+                "frac": 0.0438828125,
+                "acc": 0.13387929499732953
+              },
+              "3_to_8": {
+                "frac": 0.09351171875,
+                "acc": 0.07565061197209574
+              },
+              "over_8_or_none": {
+                "frac": 0.16540625,
+                "acc": 0.037384281126015495
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2869140625,
+                "acc": 0.8378897208985705,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7879509870660313,
+                "acc_given_hit": 0.9994298056155507,
+                "acc_given_miss": 0.23762439807383628,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.2271796875,
+                "acc": 0.8195261185047629,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7661886584820661,
+                "acc_given_hit": 0.9993940754039498,
+                "acc_given_miss": 0.23010736873069568,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2609453125,
+                "acc": 0.533636717463549,
+                "parent_hit_any_head": 0.7180473638513817,
+                "block_hit_any_head": 0.46814466632735546,
+                "acc_given_hit": 0.9989447766443897,
+                "acc_given_miss": 0.12406766303582989,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17253974431903235,
+                "parent_hit_random_policy": 0.5575631856918335
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.134046875,
+                "acc": 0.5274507518358783,
+                "parent_hit_any_head": 0.7124082060846253,
+                "block_hit_any_head": 0.4671581769436997,
+                "acc_given_hit": 0.998877175472522,
+                "acc_given_miss": 0.11413727098714793,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.3056357204914093
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.0909140625,
+                "acc": 0.5262954369682908,
+                "parent_hit_any_head": 0.7069691501246026,
+                "block_hit_any_head": 0.4620606685571883,
+                "acc_given_hit": 0.9985121815138553,
+                "acc_given_miss": 0.12068690095846646,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21009033918380737
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.6843828125,
+                "parent_hit_any_head": 0.861234375,
+                "block_hit_any_head": 0.62692578125
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s2-s312",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s312",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 312,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.836265625,
+        "recorded_primary": 0.836265625,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 1.3983255624771118,
+          "loss_recorded": 1.3983267478942871
+        },
+        "value_in_window_frac": 0.000578125,
+        "reachable_frac": 1.0,
+        "seconds": 70.6,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.5968515625,
+            "block_hit_any_head": 0.12435546875,
+            "block_hit_per_head": [
+              0.075984375,
+              0.103140625,
+              0.0651015625,
+              0.09100390625
+            ],
+            "acc_given_block_hit": 0.8926653054813884,
+            "acc_given_block_miss": 0.8282559721633618,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.12435546875,
+                "acc": 0.8926653054813884
+              },
+              "1": {
+                "frac": 0.0602265625,
+                "acc": 0.8673628226747957
+              },
+              "2": {
+                "frac": 0.05153515625,
+                "acc": 0.8311225649965891
+              },
+              "3_to_8": {
+                "frac": 0.23630859375,
+                "acc": 0.823770559550376
+              },
+              "over_8_or_none": {
+                "frac": 0.52757421875,
+                "acc": 0.8255206983614568
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28696484375,
+                "acc": 0.866613124974477,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3357880837972857,
+                "acc_given_hit": 0.9083022539322199,
+                "acc_given_miss": 0.8455374526078492,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226078125,
+                "acc": 0.852477710968277,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.04259105674200014,
+                "acc_given_hit": 0.8823529411764706,
+                "acc_given_miss": 0.8511486888884878,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26033203125,
+                "acc": 0.8122139695401005,
+                "parent_hit_any_head": 0.3147572961212394,
+                "block_hit_any_head": 0.06791207142321254,
+                "acc_given_hit": 0.8146266018559435,
+                "acc_given_miss": 0.8120381847743846,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17389151474229125,
+                "parent_hit_random_policy": 0.5588110685348511
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13641796875,
+                "acc": 0.8080634538842597,
+                "parent_hit_any_head": 0.009506628869226584,
+                "block_hit_any_head": 0.0035506686138075194,
+                "acc_given_hit": 0.8387096774193549,
+                "acc_given_miss": 0.8079542515589528,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.305788516998291
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09020703125,
+                "acc": 0.8111548954228555,
+                "parent_hit_any_head": 0.006322262157363703,
+                "block_hit_any_head": 0.002251764603992552,
+                "acc_given_hit": 0.8846153846153846,
+                "acc_given_miss": 0.8109891063755913,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.20986974239349365
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.836265625,
+                "parent_hit_any_head": 0.5968515625,
+                "block_hit_any_head": 0.12435546875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.95505078125,
+            "block_hit_any_head": 0.565375,
+            "block_hit_per_head": [
+              0.51688671875,
+              0.51246484375,
+              0.5165703125,
+              0.5039296875
+            ],
+            "acc_given_block_hit": 0.9895188481096617,
+            "acc_given_block_miss": 0.6369086137474834,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.565375,
+                "acc": 0.9895188481096617
+              },
+              "1": {
+                "frac": 0.19546484375,
+                "acc": 0.873478686624433
+              },
+              "2": {
+                "frac": 0.07075390625,
+                "acc": 0.6775244299674267
+              },
+              "3_to_8": {
+                "frac": 0.0961484375,
+                "acc": 0.37824002600146256
+              },
+              "over_8_or_none": {
+                "frac": 0.0722578125,
+                "acc": 0.3013839333982052
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28696484375,
+                "acc": 0.866613124974477,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5744116085648557,
+                "acc_given_hit": 0.9875823498744016,
+                "acc_given_miss": 0.7033423956500879,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.226078125,
+                "acc": 0.852477710968277,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5934065934065934,
+                "acc_given_hit": 0.990012811553692,
+                "acc_given_miss": 0.6517508074111847,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26033203125,
+                "acc": 0.8122139695401005,
+                "parent_hit_any_head": 0.9125515792632606,
+                "block_hit_any_head": 0.5456523370095281,
+                "acc_given_hit": 0.9903753609239654,
+                "acc_given_miss": 0.5982496697490093,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17389151474229125,
+                "parent_hit_random_policy": 0.5588110685348511
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13641796875,
+                "acc": 0.8080634538842597,
+                "parent_hit_any_head": 0.9033015491223549,
+                "block_hit_any_head": 0.5500386564728116,
+                "acc_given_hit": 0.9900046853037638,
+                "acc_given_miss": 0.5856561028382334,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.305788516998291
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09020703125,
+                "acc": 0.8111548954228555,
+                "parent_hit_any_head": 0.9003161131078682,
+                "block_hit_any_head": 0.5464859481228078,
+                "acc_given_hit": 0.9914421553090332,
+                "acc_given_miss": 0.5939081447531749,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.20986974239349365
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.836265625,
+                "parent_hit_any_head": 0.95505078125,
+                "block_hit_any_head": 0.565375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s2-s810001",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s810001",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 810001,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.57805078125,
+        "recorded_primary": 0.57805078125,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 3.685412883758545,
+          "loss_recorded": 3.6854119396209715
+        },
+        "value_in_window_frac": 0.00071484375,
+        "reachable_frac": 1.0,
+        "seconds": 56.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.88011328125,
+            "block_hit_any_head": 0.3394609375,
+            "block_hit_per_head": [
+              0.2501171875,
+              0.21178125,
+              0.1230859375,
+              0.21255859375
+            ],
+            "acc_given_block_hit": 0.5968447216404685,
+            "acc_given_block_miss": 0.568392293226413,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.3394609375,
+                "acc": 0.5968447216404685
+              },
+              "1": {
+                "frac": 0.191390625,
+                "acc": 0.664748142705527
+              },
+              "2": {
+                "frac": 0.166953125,
+                "acc": 0.6950397753860552
+              },
+              "3_to_8": {
+                "frac": 0.13734375,
+                "acc": 0.4995449374288965
+              },
+              "over_8_or_none": {
+                "frac": 0.1648515625,
+                "acc": 0.3856215345244301
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28693359375,
+                "acc": 0.7612143489211082,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.4648288067524335,
+                "acc_given_hit": 0.7170220243673852,
+                "acc_given_miss": 0.7995980768741574,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22669921875,
+                "acc": 0.7024209528732661,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3685189971568881,
+                "acc_given_hit": 0.6131294711740777,
+                "acc_given_miss": 0.7545295786946081,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2610859375,
+                "acc": 0.40732816661180765,
+                "parent_hit_any_head": 0.8538107064843352,
+                "block_hit_any_head": 0.2835811963254436,
+                "acc_given_hit": 0.44576342724490875,
+                "acc_given_miss": 0.3921142761674046,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.1703372333103923,
+                "parent_hit_random_policy": 0.5578747987747192
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13530078125,
+                "acc": 0.41039928400265613,
+                "parent_hit_any_head": 0.6509512948580998,
+                "block_hit_any_head": 0.21696451771227301,
+                "acc_given_hit": 0.4605455755156354,
+                "acc_given_miss": 0.396504682545535,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.30607759952545166
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08998046875,
+                "acc": 0.4280876926416323,
+                "parent_hit_any_head": 0.6166702843499023,
+                "block_hit_any_head": 0.21280659865422183,
+                "acc_given_hit": 0.48184414524683805,
+                "acc_given_miss": 0.4135553962389015,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.20999689400196075
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.57805078125,
+                "parent_hit_any_head": 0.88011328125,
+                "block_hit_any_head": 0.3394609375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.86906640625,
+            "block_hit_any_head": 0.56956640625,
+            "block_hit_per_head": [
+              0.48161328125,
+              0.48233984375,
+              0.48315625,
+              0.4787109375
+            ],
+            "acc_given_block_hit": 0.9784375450075098,
+            "acc_given_block_miss": 0.048243504460436876,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.56956640625,
+                "acc": 0.9784375450075098
+              },
+              "1": {
+                "frac": 0.07453515625,
+                "acc": 0.2192233111472145
+              },
+              "2": {
+                "frac": 0.0461875,
+                "acc": 0.07273342354533154
+              },
+              "3_to_8": {
+                "frac": 0.12287890625,
+                "acc": 0.0024795752932574625
+              },
+              "over_8_or_none": {
+                "frac": 0.18683203125,
+                "acc": 0.004077024399422945
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28693359375,
+                "acc": 0.7612143489211082,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7573616499897897,
+                "acc_given_hit": 0.9794722461892436,
+                "acc_given_miss": 0.07995286988722437,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22669921875,
+                "acc": 0.7024209528732661,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6940639269406392,
+                "acc_given_hit": 0.9829940417080437,
+                "acc_given_miss": 0.06589693044212898,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2610859375,
+                "acc": 0.40732816661180765,
+                "parent_hit_any_head": 0.7320536221909693,
+                "block_hit_any_head": 0.395314042909722,
+                "acc_given_hit": 0.9755506774657482,
+                "acc_given_miss": 0.035852137767220904,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.1703372333103923,
+                "parent_hit_random_policy": 0.5578747987747192
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13530078125,
+                "acc": 0.41039928400265613,
+                "parent_hit_any_head": 0.727112625227358,
+                "block_hit_any_head": 0.399919161590207,
+                "acc_given_hit": 0.9718452209067283,
+                "acc_given_miss": 0.03622804907385133,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.30607759952545166
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08998046875,
+                "acc": 0.4280876926416323,
+                "parent_hit_any_head": 0.7326676796179726,
+                "block_hit_any_head": 0.4177555893205991,
+                "acc_given_hit": 0.9707991270913436,
+                "acc_given_miss": 0.0386966895317626,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.20999689400196075
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.57805078125,
+                "parent_hit_any_head": 0.86906640625,
+                "block_hit_any_head": 0.56956640625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s2-s810002",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s810002",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 810002,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.70887109375,
+        "recorded_primary": 0.70887109375,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 2.4912315483093264,
+          "loss_recorded": 2.491232148170471
+        },
+        "value_in_window_frac": 0.000640625,
+        "reachable_frac": 1.0,
+        "seconds": 56.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.78126953125,
+            "block_hit_any_head": 0.2409296875,
+            "block_hit_per_head": [
+              0.1730078125,
+              0.16869921875,
+              0.13750390625,
+              0.20887890625
+            ],
+            "acc_given_block_hit": 0.7116800155647071,
+            "acc_given_block_miss": 0.7079795391154887,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.2409296875,
+                "acc": 0.7116800155647071
+              },
+              "1": {
+                "frac": 0.16732421875,
+                "acc": 0.8250029181743901
+              },
+              "2": {
+                "frac": 0.09555078125,
+                "acc": 0.7885205020236294
+              },
+              "3_to_8": {
+                "frac": 0.24194140625,
+                "acc": 0.7384761935515121
+              },
+              "over_8_or_none": {
+                "frac": 0.25425390625,
+                "acc": 0.57167877828819
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2873046875,
+                "acc": 0.8210605030591435,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.32172671651937457,
+                "acc_given_hit": 0.7824451675611714,
+                "acc_given_miss": 0.8393769920019244,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22677734375,
+                "acc": 0.8031177331840496,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.2886573077254328,
+                "acc_given_hit": 0.7350519155030433,
+                "acc_given_miss": 0.830738310288883,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26094140625,
+                "acc": 0.6067723537072798,
+                "parent_hit_any_head": 0.7354231224083472,
+                "block_hit_any_head": 0.2270325294531519,
+                "acc_given_hit": 0.6142028221020704,
+                "acc_given_miss": 0.6045899099448049,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17210820197302434,
+                "parent_hit_random_policy": 0.5576443672180176
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13469140625,
+                "acc": 0.5872219483193643,
+                "parent_hit_any_head": 0.358661291725878,
+                "block_hit_any_head": 0.11293175951973551,
+                "acc_given_hit": 0.6068310220852594,
+                "acc_given_miss": 0.5847255369928401,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.306161493062973
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09028515625,
+                "acc": 0.5917016397698265,
+                "parent_hit_any_head": 0.29879288711980273,
+                "block_hit_any_head": 0.09505473110370787,
+                "acc_given_hit": 0.6299499317250796,
+                "acc_given_miss": 0.5876840696117804,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21035054326057434
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.70887109375,
+                "parent_hit_any_head": 0.78126953125,
+                "block_hit_any_head": 0.2409296875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.863921875,
+            "block_hit_any_head": 0.52623046875,
+            "block_hit_per_head": [
+              0.450828125,
+              0.45953515625,
+              0.4567109375,
+              0.45488671875
+            ],
+            "acc_given_block_hit": 0.9970753071298668,
+            "acc_given_block_miss": 0.3887537618007173,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.52623046875,
+                "acc": 0.9970753071298668
+              },
+              "1": {
+                "frac": 0.12262109375,
+                "acc": 0.7687553757446401
+              },
+              "2": {
+                "frac": 0.06510546875,
+                "acc": 0.49751004979900404
+              },
+              "3_to_8": {
+                "frac": 0.1157421875,
+                "acc": 0.21424232197097537
+              },
+              "over_8_or_none": {
+                "frac": 0.17030078125,
+                "acc": 0.1921691859531619
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2873046875,
+                "acc": 0.8210605030591435,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6505234534330387,
+                "acc_given_hit": 0.9969276428541571,
+                "acc_given_miss": 0.49369747899159666,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22677734375,
+                "acc": 0.8031177331840496,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6468865730772543,
+                "acc_given_hit": 0.9977100252962322,
+                "acc_given_miss": 0.4466341463414634,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26094140625,
+                "acc": 0.6067723537072798,
+                "parent_hit_any_head": 0.7350488765138247,
+                "block_hit_any_head": 0.40385622969716023,
+                "acc_given_hit": 0.9972199570020016,
+                "acc_given_miss": 0.34226452050322675,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.17210820197302434,
+                "parent_hit_random_policy": 0.5576443672180176
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13469140625,
+                "acc": 0.5872219483193643,
+                "parent_hit_any_head": 0.7038658971607552,
+                "block_hit_any_head": 0.38676372494997246,
+                "acc_given_hit": 0.9964757048590281,
+                "acc_given_miss": 0.32910853629699693,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.306161493062973
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09028515625,
+                "acc": 0.5917016397698265,
+                "parent_hit_any_head": 0.7003417989875828,
+                "block_hit_any_head": 0.38939125167654565,
+                "acc_given_hit": 0.9956666666666667,
+                "acc_given_miss": 0.3340891376744845,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.21035054326057434
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.70887109375,
+                "parent_hit_any_head": 0.863921875,
+                "block_hit_any_head": 0.52623046875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s2-s810003",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s2-s810003",
+        "arm": "baseline",
+        "s1": 2,
+        "seed": 810003,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.01147265625,
+        "recorded_primary": 0.01147265625,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 8.09965705871582,
+          "loss_recorded": 8.099658000946045
+        },
+        "value_in_window_frac": 0.000609375,
+        "reachable_frac": 1.0,
+        "seconds": 55.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.8518828125,
+            "block_hit_any_head": 0.54946484375,
+            "block_hit_per_head": [
+              0.3338828125,
+              0.2965,
+              0.28942578125,
+              0.33044921875
+            ],
+            "acc_given_block_hit": 0.015256321847251942,
+            "acc_given_block_miss": 0.006858163468791455,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.54946484375,
+                "acc": 0.015256321847251942
+              },
+              "1": {
+                "frac": 0.1324453125,
+                "acc": 0.0026543974517784464
+              },
+              "2": {
+                "frac": 0.0619609375,
+                "acc": 0.0015760938091035179
+              },
+              "3_to_8": {
+                "frac": 0.06681640625,
+                "acc": 0.0019877228880444313
+              },
+              "over_8_or_none": {
+                "frac": 0.1893125,
+                "acc": 0.01324694618686035
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28640234375,
+                "acc": 0.017567069927303974,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6735771082529767,
+                "acc_given_hit": 0.022435508038715427,
+                "acc_given_miss": 0.007520996114152008,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22661328125,
+                "acc": 0.019237067553824143,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.623601606536466,
+                "acc_given_hit": 0.021920004422699504,
+                "acc_given_miss": 0.01479208646272211,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26116796875,
+                "acc": 0.004516968545745524,
+                "parent_hit_any_head": 0.7633826410804828,
+                "block_hit_any_head": 0.49477258110351635,
+                "acc_given_hit": 0.0050181378476420796,
+                "acc_given_miss": 0.004026170105686965,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.16999955129451533,
+                "parent_hit_random_policy": 0.5568006038665771
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1350078125,
+                "acc": 0.004021758000115734,
+                "parent_hit_any_head": 0.6195532665933684,
+                "block_hit_any_head": 0.4038250101267288,
+                "acc_given_hit": 0.0036540803897685747,
+                "acc_given_miss": 0.004270808056297015,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.3060515820980072
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.003957499892459242,
+                "parent_hit_any_head": 0.6150471028519809,
+                "block_hit_any_head": 0.34684045253150947,
+                "acc_given_hit": 0.003472652858737443,
+                "acc_given_miss": 0.004214963119072708,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.209903284907341
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.01147265625,
+                "parent_hit_any_head": 0.8518828125,
+                "block_hit_any_head": 0.54946484375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.80867578125,
+            "block_hit_any_head": 0.38284375,
+            "block_hit_per_head": [
+              0.25553515625,
+              0.25641796875,
+              0.25525390625,
+              0.25525
+            ],
+            "acc_given_block_hit": 0.022385927679373113,
+            "acc_given_block_miss": 0.004702769760494202,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.38284375,
+                "acc": 0.022385927679373113
+              },
+              "1": {
+                "frac": 0.090078125,
+                "acc": 0.016001734605377276
+              },
+              "2": {
+                "frac": 0.06055859375,
+                "acc": 0.0014835838224859705
+              },
+              "3_to_8": {
+                "frac": 0.22526953125,
+                "acc": 0.002757113874005098
+              },
+              "over_8_or_none": {
+                "frac": 0.24125,
+                "acc": 0.0031088082901554403
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28640234375,
+                "acc": 0.017567069927303974,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.6139609105416058,
+                "acc_given_hit": 0.02052649116961013,
+                "acc_given_miss": 0.012860373092142453,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22661328125,
+                "acc": 0.019237067553824143,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5966938444831331,
+                "acc_given_hit": 0.031546105847007164,
+                "acc_given_miss": 0.001025772534940377,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26116796875,
+                "acc": 0.004516968545745524,
+                "parent_hit_any_head": 0.6241941997337681,
+                "block_hit_any_head": 0.1571815312822507,
+                "acc_given_hit": 0.010467218574555143,
+                "acc_given_miss": 0.003407275953859805,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.16999955129451533,
+                "parent_hit_random_policy": 0.5568006038665771
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1350078125,
+                "acc": 0.004021758000115734,
+                "parent_hit_any_head": 0.5974191308373358,
+                "block_hit_any_head": 0.14136913373068688,
+                "acc_given_hit": 0.00880065493246009,
+                "acc_given_miss": 0.003234937323089365,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.3060515820980072
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.003957499892459242,
+                "parent_hit_any_head": 0.5724609627048651,
+                "block_hit_any_head": 0.12827461607949414,
+                "acc_given_hit": 0.008383635144198525,
+                "acc_given_miss": 0.003306192943498643,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.209903284907341
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.01147265625,
+                "parent_hit_any_head": 0.80867578125,
+                "block_hit_any_head": 0.38284375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s6-s810001",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s6-s810001",
+        "arm": "baseline",
+        "s1": 6,
+        "seed": 810001,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.936640625,
+        "recorded_primary": 0.936640625,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.5731858892440795,
+          "loss_recorded": 0.5731865235567093
+        },
+        "value_in_window_frac": 0.00071484375,
+        "reachable_frac": 1.0,
+        "seconds": 57.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.9505625,
+            "block_hit_any_head": 0.402890625,
+            "block_hit_per_head": [
+              0.15693359375,
+              0.227671875,
+              0.231484375,
+              0.14291796875
+            ],
+            "acc_given_block_hit": 0.9273802598409928,
+            "acc_given_block_miss": 0.9428889179641502,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.402890625,
+                "acc": 0.9273802598409928
+              },
+              "1": {
+                "frac": 0.21572265625,
+                "acc": 0.9453146220009054
+              },
+              "2": {
+                "frac": 0.15370703125,
+                "acc": 0.9440900658212407
+              },
+              "3_to_8": {
+                "frac": 0.1242734375,
+                "acc": 0.9329226126862388
+              },
+              "over_8_or_none": {
+                "frac": 0.10340625,
+                "acc": 0.9480205500151103
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28693359375,
+                "acc": 0.9379347900074876,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5203866312708461,
+                "acc_given_hit": 0.9339699149771092,
+                "acc_given_miss": 0.9422367300596083,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22669921875,
+                "acc": 0.9345567330059447,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.42136641681743775,
+                "acc_given_hit": 0.9225484583299256,
+                "acc_given_miss": 0.9433012715523659,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2610859375,
+                "acc": 0.936263802028786,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3702534486370029,
+                "acc_given_hit": 0.9238695599466602,
+                "acc_given_miss": 0.943550877859875,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13530078125,
+                "acc": 0.9372058781072263,
+                "parent_hit_any_head": 0.9205473915177411,
+                "block_hit_any_head": 0.3101596558593412,
+                "acc_given_hit": 0.9232058084333985,
+                "acc_given_miss": 0.9435004603666193,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5937869907901955,
+                "parent_hit_random_policy": 0.9021690487861633
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08998046875,
+                "acc": 0.9380073800738007,
+                "parent_hit_any_head": 0.5700455828087693,
+                "block_hit_any_head": 0.2158020403733449,
+                "acc_given_hit": 0.9269764634882317,
+                "acc_given_miss": 0.9410429583702391,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6299905776977539
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.936640625,
+                "parent_hit_any_head": 0.9505625,
+                "block_hit_any_head": 0.402890625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.93260546875,
+            "block_hit_per_head": [
+              0.74251953125,
+              0.58817578125,
+              0.74136328125,
+              0.7515703125
+            ],
+            "acc_given_block_hit": 0.9999916229313877,
+            "acc_given_block_miss": 0.059989567031820554,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.93260546875,
+                "acc": 0.9999916229313877
+              },
+              "1": {
+                "frac": 0.036109375,
+                "acc": 0.10157940285590654
+              },
+              "2": {
+                "frac": 0.015,
+                "acc": 0.021614583333333333
+              },
+              "3_to_8": {
+                "frac": 0.01045703125,
+                "acc": 0.0044826298094882335
+              },
+              "over_8_or_none": {
+                "frac": 0.005828125,
+                "acc": 0.0006702412868632708
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28693359375,
+                "acc": 0.9379347900074876,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.934721938601865,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.04921793534932221,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22669921875,
+                "acc": 0.9345567330059447,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9299388300163695,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.06591244466305952,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.2610859375,
+                "acc": 0.936263802028786,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9322690684939705,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.058979456593770706,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13530078125,
+                "acc": 0.9372058781072263,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9325576695441291,
+                "acc_given_hit": 0.9999690412061546,
+                "acc_given_miss": 0.06934931506849315,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5937869907901955,
+                "parent_hit_random_policy": 0.9021690487861633
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08998046875,
+                "acc": 0.9380073800738007,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9336227479921858,
+                "acc_given_hit": 0.999953501348461,
+                "acc_given_miss": 0.06671026814911707,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6299905776977539
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.936640625,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.93260546875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s6-s810002",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s6-s810002",
+        "arm": "baseline",
+        "s1": 6,
+        "seed": 810002,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.944796875,
+        "recorded_primary": 0.944796875,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.4856137888431549,
+          "loss_recorded": 0.48561398816108703
+        },
+        "value_in_window_frac": 0.000640625,
+        "reachable_frac": 1.0,
+        "seconds": 56.9,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.999734375,
+            "block_hit_any_head": 0.32925,
+            "block_hit_per_head": [
+              0.17450390625,
+              0.1661484375,
+              0.1775859375,
+              0.251921875
+            ],
+            "acc_given_block_hit": 0.9334543470007594,
+            "acc_given_block_miss": 0.950364563920984,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.32925,
+                "acc": 0.9334543470007594
+              },
+              "1": {
+                "frac": 0.17359765625,
+                "acc": 0.9436556333115816
+              },
+              "2": {
+                "frac": 0.1658046875,
+                "acc": 0.9664514913066014
+              },
+              "3_to_8": {
+                "frac": 0.2725,
+                "acc": 0.941786123853211
+              },
+              "over_8_or_none": {
+                "frac": 0.05884765625,
+                "acc": 0.9645536010620643
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2873046875,
+                "acc": 0.9533650577838205,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3228416043507818,
+                "acc_given_hit": 0.9350600126342388,
+                "acc_given_miss": 0.9620921594217448,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22677734375,
+                "acc": 0.9433296012402033,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3742313323572474,
+                "acc_given_hit": 0.9294854091871491,
+                "acc_given_miss": 0.9516089074843789,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26094140625,
+                "acc": 0.939970958518585,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3385877456924298,
+                "acc_given_hit": 0.9304094084357591,
+                "acc_given_miss": 0.9448656723174071,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13469140625,
+                "acc": 0.9406049708535136,
+                "parent_hit_any_head": 0.9995359763347931,
+                "block_hit_any_head": 0.28812969461442534,
+                "acc_given_hit": 0.9392048314041268,
+                "acc_given_miss": 0.9411716776664222,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5961254023955221,
+                "parent_hit_random_policy": 0.9024814963340759
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09028515625,
+                "acc": 0.9414182494699952,
+                "parent_hit_any_head": 0.9977501838792022,
+                "block_hit_any_head": 0.2710163111668758,
+                "acc_given_hit": 0.9430076628352491,
+                "acc_given_miss": 0.9408273488040834,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6310515999794006
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.944796875,
+                "parent_hit_any_head": 0.999734375,
+                "block_hit_any_head": 0.32925
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.844875,
+            "block_hit_per_head": [
+              0.54816015625,
+              0.61112890625,
+              0.50895703125,
+              0.5719609375
+            ],
+            "acc_given_block_hit": 0.9999861296049711,
+            "acc_given_block_miss": 0.6442133360193393,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.844875,
+                "acc": 0.9999861296049711
+              },
+              "1": {
+                "frac": 0.0770625,
+                "acc": 0.7433090024330901
+              },
+              "2": {
+                "frac": 0.03676171875,
+                "acc": 0.5946233131441929
+              },
+              "3_to_8": {
+                "frac": 0.035625,
+                "acc": 0.556688596491228
+              },
+              "over_8_or_none": {
+                "frac": 0.00567578125,
+                "acc": 0.16930488644184447
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.2873046875,
+                "acc": 0.9533650577838205,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8577158395649218,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.6722408026755853,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22677734375,
+                "acc": 0.9433296012402033,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.843613814486263,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.6376252891287587,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26094140625,
+                "acc": 0.939970958518585,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8382958338947022,
+                "acc_given_hit": 0.9999464276147788,
+                "acc_given_miss": 0.6290501758933531,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.13469140625,
+                "acc": 0.9406049708535136,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8364606594936341,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.6368150381273275,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5961254023955221,
+                "parent_hit_random_policy": 0.9024814963340759
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09028515625,
+                "acc": 0.9414182494699952,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.8387487561112794,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.6367051247652267,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6310515999794006
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.944796875,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.844875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "hier-s6-s810003",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s6-s810003",
+        "arm": "baseline",
+        "s1": 6,
+        "seed": 810003,
+        "n_sequences": 2000,
+        "n_queries": 256000,
+        "accuracy_reproduced": 0.9445078125,
+        "recorded_primary": 0.9445078125,
+        "validity_gate": true,
+        "gate_parts": {
+          "accuracy": true,
+          "loss": true,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.4836104061603546,
+          "loss_recorded": 0.48361086642742157
+        },
+        "value_in_window_frac": 0.000609375,
+        "reachable_frac": 1.0,
+        "seconds": 57.1,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.981046875,
+            "block_hit_any_head": 0.32798046875,
+            "block_hit_per_head": [
+              0.2191875,
+              0.23497265625,
+              0.04573828125,
+              0.210375
+            ],
+            "acc_given_block_hit": 0.9368174076676631,
+            "acc_given_block_miss": 0.948261129873225,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.32798046875,
+                "acc": 0.9368174076676631
+              },
+              "1": {
+                "frac": 0.2453359375,
+                "acc": 0.9385886698723052
+              },
+              "2": {
+                "frac": 0.19569140625,
+                "acc": 0.944747190450526
+              },
+              "3_to_8": {
+                "frac": 0.2002578125,
+                "acc": 0.9643623454141146
+              },
+              "over_8_or_none": {
+                "frac": 0.030734375,
+                "acc": 0.9429334011184545
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28640234375,
+                "acc": 0.9492900885173011,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.32346322235709707,
+                "acc_given_hit": 0.9351492663180975,
+                "acc_given_miss": 0.9560510452996794,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22661328125,
+                "acc": 0.943426473376657,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3336148794235775,
+                "acc_given_hit": 0.9402707450656195,
+                "acc_given_miss": 0.9450063374634626,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26116796875,
+                "acc": 0.9462749966347088,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.3379799279079855,
+                "acc_given_hit": 0.9424259857503209,
+                "acc_given_miss": 0.9482400253038724,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1350078125,
+                "acc": 0.943145651293328,
+                "parent_hit_any_head": 0.9704299519703721,
+                "block_hit_any_head": 0.3259359990741277,
+                "acc_given_hit": 0.9358189081225033,
+                "acc_given_miss": 0.9466884148173584,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5928765696429604,
+                "parent_hit_random_policy": 0.9020445942878723
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.929066116057986,
+                "parent_hit_any_head": 0.8352475588247946,
+                "block_hit_any_head": 0.3024476276508797,
+                "acc_given_hit": 0.9165125871142085,
+                "acc_given_miss": 0.9345091267883572,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.629709780216217
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.9445078125,
+                "parent_hit_any_head": 0.981046875,
+                "block_hit_any_head": 0.32798046875
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 0.99605859375,
+            "block_hit_any_head": 0.74793359375,
+            "block_hit_per_head": [
+              0.5719375,
+              0.53226953125,
+              0.55556640625,
+              0.4970546875
+            ],
+            "acc_given_block_hit": 0.9996866366186002,
+            "acc_given_block_miss": 0.7807807342435185,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.74793359375,
+                "acc": 0.9996866366186002
+              },
+              "1": {
+                "frac": 0.14361328125,
+                "acc": 0.8838297293621651
+              },
+              "2": {
+                "frac": 0.054015625,
+                "acc": 0.7787821810818629
+              },
+              "3_to_8": {
+                "frac": 0.04066796875,
+                "acc": 0.48160599366055135
+              },
+              "over_8_or_none": {
+                "frac": 0.01376953125,
+                "acc": 0.5974468085106382
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.28640234375,
+                "acc": 0.9492900885173011,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7439681392272126,
+                "acc_given_hit": 0.9997800062331568,
+                "acc_given_miss": 0.8025783081184743,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.22661328125,
+                "acc": 0.943426473376657,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7756537327840312,
+                "acc_given_hit": 0.9994888661718299,
+                "acc_given_miss": 0.7495966192854399,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.26116796875,
+                "acc": 0.9462749966347088,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.7561136122287201,
+                "acc_given_hit": 0.9996637192649299,
+                "acc_given_miss": 0.7807555501042561,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1350078125,
+                "acc": 0.943145651293328,
+                "parent_hit_any_head": 0.9962675771078062,
+                "block_hit_any_head": 0.7352583762513744,
+                "acc_given_hit": 0.9997638910750827,
+                "acc_given_miss": 0.7859016393442623,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.5928765696429604,
+                "parent_hit_random_policy": 0.9020445942878723
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.09080859375,
+                "acc": 0.929066116057986,
+                "parent_hit_any_head": 0.9621456532025637,
+                "block_hit_any_head": 0.6865832150384996,
+                "acc_given_hit": 0.9998746945680095,
+                "acc_given_miss": 0.7739500411748559,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.629709780216217
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.9445078125,
+                "parent_hit_any_head": 0.99605859375,
+                "block_hit_any_head": 0.74793359375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

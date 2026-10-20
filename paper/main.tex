@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\title{Does a Cheap Block Selector Keep Recall?\\A Pre-Registered Budget Study on MQAR}
+\author{Anuj Dev Singh\\Independent Researcher}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Sparse attention lowers the cost of long contexts by letting each query read only a few selected blocks, and
+hierarchical selectors also make the choosing cheap. What such selectors give up in recall is rarely measured against
+a dense model trained on the same data. We train small models on multi-query associative recall (MQAR) at length 2048
+and vary $S_1$, the number of super-blocks a two-level block selector keeps per query, comparing each setting with
+dense attention on byte-identical splits, under pre-registered protocols, with untouched confirmation seeds and every
+run reported. On the pilot seed recall rose from 0.705 at $S_1{=}2$ to 0.962 at $S_1{=}6$, while keeping every
+super-block ($S_1{=}12$) gave 0.850. Paired on identical data, $S_1{=}6$ beat $S_1{=}2$ on all four seeds (by 0.24 to
+0.36 where both learned; $S_1{=}2$ never learned on the fourth) and held 0.937--0.945 on three untouched seeds. On the one reserved seed where dense attention learned, it beat both, by
+0.291 and 0.055, so no setting met our pre-registered bar of 0.02. Because every key in this task lies in the first two
+super-blocks, the cheapest setting could in principle find the right super-block by position alone; we therefore read
+the curve as a measure of how reliably the selector learns at a fixed fine budget, not of information pruned away. Replaying
+every trained selector, recall was 0.978--1.000 whenever it chose the key's block, so errors followed wrong choices;
+at $S_1{=}2$ the models missed the key's super-block on 5--14\% of queries despite the shortcut, and from $S_1{=}4$ up
+those misses vanished. Two intuitive repairs chose the key's block more often yet lowered recall. Dense attention learned on
+only two of four seeds within our training budget. We release code, protocols and all run records.
+\end{abstract}
+
+\input{sections/1_introduction}
+\input{sections/2_setup}
+\input{sections/3_budget}
+\input{sections/4_selection}
+\input{sections/5_fixes}
+\input{sections/6_dense}
+\input{sections/7_related}
+\input{sections/8_limitations}
+\input{sections/9_conclusion}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

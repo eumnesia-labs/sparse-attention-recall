@@ -1,0 +1,1 @@
+m4-L2048-dense-seed810001__20261006T043946Z (AWS round2e store: s3://<checkpoint-bucket>/round2e/runs/dense-fp32-isolated-s810001/)

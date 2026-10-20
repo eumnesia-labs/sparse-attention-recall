@@ -1,0 +1,62 @@
+\section{Introduction}
+\label{sec:intro}
+
+Attention lets a language model retrieve any earlier token by content, at a cost that grows quadratically with
+context length~\cite{vaswani2017attention}. Sparse attention reduces that cost by choosing, for each query, a small
+set of blocks to read~\cite{child2019sparse,roy2021routing,yuan2025nsa}. Hierarchical selectors go further: they
+first choose among coarse groups of blocks and then among the blocks inside them, so that the work of choosing also
+grows sub-quadratically~\cite{roy2021routing,lee2025hip,xu2026hisa,mao2026gist,hu2026hils}.
+
+The cost of these methods is easy to report; what they give up is harder to measure. One commercial long-context
+system reports attention speed-ups of more than 50$\times$ over FlashAttention, measured at up to a million
+tokens~\cite{subq2026,appen2026}. A vendor-commissioned evaluation of that system found single-needle retrieval at
+100\% but multi-key retrieval falling from 96\% with two keys to 68\% with eight at 128K tokens, without a dense
+model trained under matched settings for comparison~\cite{appen2026}. Whether that drop comes from sparse selection or
+from the benchmark is not something the published evidence can separate.
+
+We ask a narrow version of the question in a setting where it can be answered cleanly: \emph{if a cheap selector
+preserved associative recall, then shrinking its budget should change recall little, compared with dense attention
+trained and tested on identical data.} We train small models on multi-query associative recall
+(MQAR)~\cite{arora2024zoology} at length 2048, vary the number of super-blocks a two-level selector keeps per query
+($S_1$) at a fixed number of fine blocks ($K{=}4$), and compare each setting with dense attention on byte-identical
+data splits. Every training run was pre-registered and is reported, and the final comparison uses seeds that were not
+touched during design.
+
+Raising $S_1$ from 2 to 6 helped consistently: on identical data, $S_1{=}6$ beat $S_1{=}2$ on all four seeds where
+both were run, by 0.24 to 0.36 where both learned ($S_1{=}2$ never learned on the fourth), and held 0.937--0.945 on three untouched seeds (Figure~\ref{fig:budget}). Keeping
+every super-block ($S_1{=}12$, which amounts to flat block selection here) did worse than $S_1{=}6$ on the one seed
+where both were run. On the one reserved seed where dense attention learned, it beat $S_1{=}2$ by 0.291 and $S_1{=}6$ by
+0.055; no setting met our pre-registered bar of 0.02.
+
+What the budget axis measures needs care. Every key in this MQAR layout lies in the first two super-blocks, so even
+$S_1{=}2$ could find the right super-block by position; raising $S_1$ mainly widens the set of blocks the fine level
+chooses from. We therefore read the curve as evidence about how reliably the selector learns to choose at a fixed
+fine budget, not about how much information pruning discards.
+
+The errors are errors of choice. Replaying all twelve trained selectors, recall was 0.978--1.000 whenever the
+selector chose the block holding the queried key, so almost all errors followed a wrong choice. The $S_1{=}2$ models
+missed the key's super-block on 5--14\% of queries even though position alone would have sufficed; from $S_1{=}4$ up
+they never did, and fine-level choices improved as well. Two intuitive repairs
+of the cheapest selector---a gradient path to the coarse scores, and max-pooled summaries---made it choose the key's
+block more often yet lowered recall; they also nearly eliminated the correct answers it had given after a wrong choice.
+
+A further result concerns the baseline. On this recipe dense attention learned the task on only two of four seeds
+(two of seven runs), while the $S_1{=}6$ selector learned on all four. When dense attention learned on this data, it
+reached perfect recall; why it often did not learn within our training budget remains open (\S\ref{sec:dense}).
+
+\paragraph{Contributions.}
+\begin{itemize}
+\item \textbf{A pre-registered recall-versus-budget measurement.} Held-out MQAR recall for a two-level block selector
+at four values of $S_1$, with dense attention on identical splits, untouched confirmation seeds, and every
+non-transition reported (\S\ref{sec:budget}).
+\item \textbf{A diagnosis of where recall is lost.} Given a correct block choice, recall is 0.978--1.000 across the
+eleven trained selectors that learned; the gain from $S_1{=}2$ to $S_1{=}6$ comes from fewer wrong choices at both
+levels; and the task's key layout lets the coarse level be solved by position (\S\ref{sec:selection}).
+\item \textbf{Two negative results.} Two intuitive repairs lowered recall (\S\ref{sec:fixes}), and dense attention
+trained unreliably under a standard recipe (\S\ref{sec:dense}).
+\item \textbf{A complete, reproducible record.} Code, frozen protocols, per-run manifests with data hashes, training
+curves, and scripts that regenerate the figures and tables from the run records (\S\ref{app:repro}).
+\end{itemize}
+
+We do not propose a new selector: hierarchical selection is established prior work (\S\ref{sec:related}). Our
+claims are limited to one synthetic task, one length, small models and a few seeds (\S\ref{sec:limitations}).

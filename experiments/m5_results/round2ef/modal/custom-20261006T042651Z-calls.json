@@ -1,0 +1,17 @@
+{
+  "launch": "custom-20261006T042651Z",
+  "plan": "custom",
+  "commit": "03dee3ec86c85d53fab0fbf2c0dcb97f29fbec3b",
+  "dirty": false,
+  "calls": [
+    {
+      "arm": "dense",
+      "s1": null,
+      "seed": 810003,
+      "label": "dense-seed810003-isolated",
+      "data_rng": "isolated",
+      "call_id": "fc-01M47QDSVGR4DS8F4DPMBCZZ75"
+    }
+  ],
+  "spawned_utc": "20261006T042651Z"
+}

@@ -1,0 +1,42 @@
+\section{Limitations}
+\label{sec:limitations}
+
+\paragraph{A positional shortcut in the task.} Zoology's MQAR places every key in the first 256 tokens, so the
+coarse level can be solved by preferring early super-blocks (\S\ref{sec:selection}). Conclusions about $S_1$ may not
+transfer to tasks whose keys are spread across the context. We built a variant with keys placed anywhere, but dense
+attention did not learn it under this recipe (recall 0.0002--0.0044, near chance, across four variants), so it could not serve
+as a test. A learnable shortcut-free task is the most important next step.
+
+\paragraph{One valid dense comparison.} Dense attention transitioned on only one of the three reserved seeds, so the
+gaps of 0.291 and 0.055 rest on a single pair. They are observations, not estimates, and we make no claim of
+statistical significance. The dense column also mixes numerics: the valid pair is TF32, while the float32 reruns are
+diagnostics.
+
+\paragraph{A selected operating point.} $S_1{=}6$ was chosen after the pilot because it scored highest there. The
+reserved seeds confirm that point only; $S_1{=}4$ and $S_1{=}12$ were not run on them.
+
+\paragraph{Training ceiling and a stopped run.} A non-transition means only that validation recall did not exceed
+0.30 within 60 epochs of a cosine schedule that ends near zero learning rate; a longer or different schedule could
+change any such run. The recipe was not tuned for dense attention under the M5 profile. One float32 dense
+run (seed 810001) was stopped by us after 55 of 60 epochs with validation recall at 0.0068, and has no held-out score.
+
+\paragraph{Scale and scope.} Models have 2 layers and width 128; there is one task and one length (2048). We make no
+claim about real text, longer contexts or larger models. At length 4096 even dense attention failed under this
+recipe, and longer lengths fall outside the task's vocabulary constraint.
+
+\paragraph{Mixers are matched in width, not in everything.} Dense attention uses dropout 0.1 and the selector
+none; the selector has extra gate parameters. Either could contribute to the difference in training reliability.
+
+\paragraph{The budget knob is not a pure intervention.} Raising $S_1$ also enlarges the set of blocks the fine level
+chooses from, and on this task the parent level can be solved by position, so the budget curve mainly reflects how
+reliably the fine choice is learned (\S\ref{sec:budget}). Flat block selection was run only as $S_1{=}12$, on one seed
+per profile, so whether the hierarchy helps or costs recall is not settled. The fine budget $K$ was fixed at 4; a
+post-hoc probe suggests it matters more than $S_1$ (\S\ref{sec:selection}).
+
+\paragraph{No speed claim.} Selector scores per query is a count, not runtime. Without a fused kernel our selector
+was slower than dense attention at every budget (Table~\ref{tab:cost}).
+
+\paragraph{Mechanism evidence is post hoc.} The selection diagnostic (\S\ref{sec:selection}) replays trained models
+and describes their choices; it does not intervene on them. The repair screen (\S\ref{sec:fixes}), the distance
+analysis and the budget probe use one M4-profile checkpoint per arm, and their explanations account for the numbers
+arithmetically rather than causally.

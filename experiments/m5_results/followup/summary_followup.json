@@ -1,0 +1,150 @@
+{
+  "s1_6": {
+    "values": [
+      0.936640625,
+      0.944796875,
+      0.9445078125
+    ],
+    "mean": 0.942,
+    "median": 0.9445,
+    "min": 0.9366,
+    "sample_sd": 0.0046,
+    "transitions": "3/3"
+  },
+  "per_seed": [
+    {
+      "seed": 810001,
+      "s1_6": 0.936640625,
+      "s1_2": 0.57805078125,
+      "dense": 0.01212109375,
+      "s1_6_minus_s1_2": 0.3586,
+      "dense_transitioned": false,
+      "dense_minus_s1_6": null,
+      "identical_data_with_m5_dense_and_s1_2": true
+    },
+    {
+      "seed": 810002,
+      "s1_6": 0.944796875,
+      "s1_2": 0.70887109375,
+      "dense": 1.0,
+      "s1_6_minus_s1_2": 0.2359,
+      "dense_transitioned": true,
+      "dense_minus_s1_6": 0.0552,
+      "identical_data_with_m5_dense_and_s1_2": true
+    },
+    {
+      "seed": 810003,
+      "s1_6": 0.9445078125,
+      "s1_2": 0.01147265625,
+      "dense": 0.0064609375,
+      "s1_6_minus_s1_2": 0.933,
+      "dense_transitioned": false,
+      "dense_minus_s1_6": null,
+      "identical_data_with_m5_dense_and_s1_2": true
+    }
+  ],
+  "near_dense_at_810002": {
+    "rule": "S1=6 >= dense - 0.02",
+    "dense": 1.0,
+    "s1_6": 0.944796875,
+    "near_dense": false
+  },
+  "dense_check_seed123": {
+    "m4_fp32_legacy_context": {
+      "heldout": 0.992,
+      "jump_epoch": 28,
+      "note": "M4 follow-up, Modal, older code"
+    },
+    "m5_tf32_isolated": {
+      "heldout": 0.00960546875,
+      "jump_epoch": null,
+      "epochs": 60
+    },
+    "tf32_legacy": {
+      "heldout": 0.98662890625,
+      "jump_epoch": 26,
+      "epochs": 28,
+      "early_stopped": true
+    },
+    "fp32_isolated": {
+      "heldout": 1.0,
+      "jump_epoch": 41,
+      "epochs": 43,
+      "early_stopped": true
+    },
+    "fp32_isolated_same_data_as_m5_dense123": true,
+    "reading": "both transition -> neither change alone explains M5's dense non-transition (protocol table row 3)"
+  },
+  "runs": {
+    "dense-fp32-isolated-s123": {
+      "label": "dense-fp32-isolated-s123",
+      "heldout": 1.0,
+      "best_val": 1.0,
+      "best_val_epoch": 42,
+      "jump_epoch": 41,
+      "epochs": 43,
+      "early_stopped": true,
+      "wall_h": 1.52,
+      "status": "complete",
+      "precision": "fp32",
+      "data_rng": "isolated",
+      "commit": "2e7eed79"
+    },
+    "dense-tf32-legacy-s123": {
+      "label": "dense-tf32-legacy-s123",
+      "heldout": 0.98662890625,
+      "best_val": 0.986578125,
+      "best_val_epoch": 27,
+      "jump_epoch": 26,
+      "epochs": 28,
+      "early_stopped": true,
+      "wall_h": 0.94,
+      "status": "complete",
+      "precision": "tf32",
+      "data_rng": "legacy",
+      "commit": "790bd27f"
+    },
+    "hier-s6-s810001": {
+      "label": "hier-s6-s810001",
+      "heldout": 0.936640625,
+      "best_val": 0.9366953125,
+      "best_val_epoch": 56,
+      "jump_epoch": 25,
+      "epochs": 60,
+      "early_stopped": false,
+      "wall_h": 3.53,
+      "status": "complete",
+      "precision": "tf32",
+      "data_rng": "isolated",
+      "commit": "f7269dde"
+    },
+    "hier-s6-s810002": {
+      "label": "hier-s6-s810002",
+      "heldout": 0.944796875,
+      "best_val": 0.9457109375,
+      "best_val_epoch": 56,
+      "jump_epoch": 27,
+      "epochs": 60,
+      "early_stopped": false,
+      "wall_h": 3.54,
+      "status": "complete",
+      "precision": "tf32",
+      "data_rng": "isolated",
+      "commit": "f7269dde"
+    },
+    "hier-s6-s810003": {
+      "label": "hier-s6-s810003",
+      "heldout": 0.9445078125,
+      "best_val": 0.94387890625,
+      "best_val_epoch": 58,
+      "jump_epoch": 26,
+      "epochs": 60,
+      "early_stopped": false,
+      "wall_h": 3.53,
+      "status": "complete",
+      "precision": "tf32",
+      "data_rng": "isolated",
+      "commit": "f7269dde"
+    }
+  }
+}

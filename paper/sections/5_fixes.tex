@@ -1,0 +1,38 @@
+\section{Two intuitive fixes made recall worse}
+\label{sec:fixes}
+
+Before M5 we tested whether the cheapest setting could be repaired without spending more selector work. Two causes
+were plausible. First, the super-block scores feed only a hard top-$k$, so they receive no direct gradient from the
+loss (the shared query and key projections still learn through the other branches). Second, super-block summaries
+are mean-pooled, which may blur the single key a query needs. We pre-registered three variants at the same budget
+($S_1{=}2$, $K{=}4$): a \emph{router gate} that adds a log-sigmoid of the selected super-block score to the fine
+attention logits, giving the parent scores a gradient path; \emph{max-pooled} super-block summaries; and both. All
+four arms trained on identical data from identical initial weights (seed 123, M4 profile), and a fix counted as a
+recovery only if it gained at least 0.10 held-out recall.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Arm ($S_1{=}2$, seed 123) & held-out recall & change & key-block hit & recall $\mid$ miss \\
+\midrule
+baseline & 0.803 & -- & 0.594 & 0.516 \\
+router gate & 0.652 & $-0.151$ & 0.648 & 0.025 \\
+max-pool summaries & 0.648 & $-0.155$ & 0.629 & 0.057 \\
+both & 0.751 & $-0.052$ & 0.708 & 0.163 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Each repair found the key block more often yet recalled less; recall after a miss nearly
+vanished.} One seed, identical data and initialisation across arms, M4 profile, $S_1{=}2$, $K{=}4$.}
+\label{tab:fixes}
+\end{table}
+
+\textbf{No variant recovered recall; all three lowered it} (Table~\ref{tab:fixes}). The selection diagnostic shows
+why the numbers moved. Each fix raised the key-block hit rate (0.594 to 0.629--0.708) but nearly removed the
+correct answers after a miss: recall on a miss fell from 0.516 to 0.025--0.163. This accounts for the lower
+recall arithmetically; it is not a causal explanation. Two further observations limit the reading. The router gate
+and max-pooling each \emph{lowered} the parent hit rate (0.873 and 0.830 against 0.888), and the combined arm's
+near-perfect parent hit (0.999) is the positional shortcut of \S\ref{sec:selection}. Finally, this is one seed, and
+two baseline seeds already differed by 0.105 in key-block hit rate. We conclude only that these two remedies failed
+this screen, not that gradient-free routing or summary dilution are unimportant.

@@ -1,0 +1,37 @@
+{
+  "launch": "variance-20261001T044204Z",
+  "plan": "variance",
+  "commit": "c4520f6c976269d49b01b9a312aa3ac10b204d25",
+  "dirty": false,
+  "calls": [
+    {
+      "arm": "dense",
+      "s1": null,
+      "seed": 123,
+      "label": "dense-seed123",
+      "call_id": "fc-01M3TWA1X9ZWW95XC5KXVN03AR"
+    },
+    {
+      "arm": "baseline",
+      "s1": 2,
+      "seed": 231,
+      "label": "baseline-s2-seed231",
+      "call_id": "fc-01M3TWA2B6QJP2YMPDS5TZRM0S"
+    },
+    {
+      "arm": "baseline",
+      "s1": 2,
+      "seed": 312,
+      "label": "baseline-s2-seed312",
+      "call_id": "fc-01M3TWA2M0VPES6D1QZFM1ZPD6"
+    },
+    {
+      "arm": "baseline",
+      "s1": 12,
+      "seed": 123,
+      "label": "baseline-s12-seed123",
+      "call_id": "fc-01M3TWA2WW1273ZR5SKHVB8CKF"
+    }
+  ],
+  "spawned_utc": "20261001T044204Z"
+}

@@ -1,0 +1,65 @@
+{
+ "status": "complete",
+ "kinds": {
+  "dense": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.048600000000000004,
+   "wall_s": 84.8,
+   "epoch_s": [
+    7.79,
+    2.43,
+    2.42,
+    2.4,
+    2.41,
+    2.43,
+    2.43,
+    2.43
+   ],
+   "gpu_max_mem_gb": 4.359,
+   "timed_epochs": 7
+  }
+ },
+ "concurrency": {
+  "dense": {
+   "1": {
+    "s_per_step": 0.048600000000000004,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  }
+ },
+ "cuda_equivalence": {
+  "ok": true,
+  "tail": "C1 integer hashing\n  PASS  splitmix64 bit-identical\n  PASS  priority order key bit-identical\n  PASS  bit packing identical\nC2 bucket lookup\n  PASS  code space 6: retained sets and occupancy identical  63787 overflowing probes\n  PASS  code space 40: retained sets and occupancy identical  53945 overflowing probes\n  PASS  code space 4294967296: retained sets and occupancy identical  0 overflowing probes\nC3 full module (float64)\n  PASS  logsumexp, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  logsumexp, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n\nALL PASS\n/opt/pytorch/lib/python3.13/site-packages/torch/cuda/__init__.py:68: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.\n  import pynvml  # type: ignore[import]\n"
+ },
+ "workers_by_kind": {
+  "dense": 1
+ },
+ "smoke_s": 110.7,
+ "estimate": {
+  "hours_per_60_epoch_run": {
+   "dense": 2.19
+  },
+  "workers_by_kind": {
+   "dense": 1
+  },
+  "throughput": {
+   "dense": 1.0
+  },
+  "phases": [
+   {
+    "phase": "dense float32",
+    "runs": 1,
+    "usd": 4.25,
+    "cumulative_usd": 4.25
+   }
+  ],
+  "note": "estimate assuming no early stopping; early stop and the futility rule shorten runs"
+ }
+}

@@ -1,0 +1,98 @@
+\section{Setup}
+\label{sec:setup}
+
+We describe the task, the selector, and the protocol. All code, configurations and per-run records are released
+(\S\ref{app:repro}).
+
+\subsection{Task: multi-query associative recall}
+
+MQAR~\cite{arora2024zoology} presents a sequence of key--value pairs followed by queries; each query is a key seen
+earlier, and the model must output its value. A model that answers correctly must retrieve a specific earlier token
+pair by content, which is the ability that fixed-size recurrent states lose and attention keeps~\cite{arora2024zoology,
+jelassi2024repeat}. We use the Zoology implementation (pinned commit \texttt{1ad20d1}) at sequence length
+$L{=}2048$ with 128 key--value pairs and a vocabulary of 8{,}192. In this layout all 128 pairs occupy the first 256
+tokens and the queries follow. We measure \emph{recall}: accuracy over query positions. Chance is about
+$10^{-4}$.
+
+\subsection{The selector}
+
+The selector is a two-level version of the compression--selection--window design of NSA~\cite{yuan2025nsa}. Keys and
+values are mean-pooled into blocks of $c{=}16$ tokens ($128$ blocks at $L{=}2048$), and blocks are grouped into
+super-blocks of $g{=}11$ blocks ($12$ super-blocks). For each query and head:
+\begin{enumerate}
+\item score the query against every super-block summary that lies fully in the past, and keep the top $S_1$;
+\item score the query against the $S_1 g$ block summaries inside the kept super-blocks; a softmax over these scores
+forms a \emph{coarse} branch;
+\item keep the top $K{=}4$ blocks and attend exactly over their $Kc{=}64$ raw tokens, the \emph{fine} branch;
+\item attend over a causal sliding window of 32 tokens, the \emph{window} branch.
+\end{enumerate}
+Per-head sigmoid gates combine the three branches. The fine branch also adds the log-sigmoid of each selected block's
+score to that block's token logits, which gives block scores a gradient path through the fine branch. The coarse
+branch can answer a query on its own from mean-pooled summaries, which matters in \S\ref{sec:selection}. Selection uses hard top-$k$, so the super-block scores receive no
+gradient through their indices; the shared query and key projections learn through the other branches. Invalid
+(future or padded) candidates are masked with a large negative constant ($-10^9$). An independent code review noted
+that this can misclassify a valid score at extreme magnitudes; telemetry over every M5-profile selector run (720
+epochs of training forwards) recorded no valid score near the constant and no non-finite value, so the failure did
+not occur there. The M4-profile runs recorded no such telemetry.
+
+Table~\ref{tab:cost} compares the work of choosing what to read. Selector work per query is
+$n_{\text{sup}} + \min(S_1, n_{\text{sup}})\,g$ scores, which grows as $O(\sqrt{L})$ for fixed $S_1$ when
+$g \approx \sqrt{L/c}$, giving $O(L^{1.5})$ per sequence, the same exponent as content-routed
+attention~\cite{roy2021routing}. We report this count because it is the quantity the budget controls. \textbf{It
+is not runtime}: our implementation has no fused kernel, and every selector setting ran 1.5--2.3$\times$
+\emph{slower} per training step than dense attention.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+Layer & selector scores per query & at $L{=}2048$ & seconds / step (L40S) \\
+\midrule
+Dense attention & -- (reads all $\le L$ past tokens) & -- & 0.0458 \\
+Flat block selection (NSA-style) & $L/c$ & 128 & -- \\
+Two-level selector, $S_1{=}2$ & $n_{\text{sup}} + S_1 g$ & 34 & 0.0668 \\
+Two-level selector, $S_1{=}4$ & & 56 & 0.0744 \\
+Two-level selector, $S_1{=}6$ & & 78 & 0.0820 \\
+Two-level selector, $S_1{=}12$ (no pruning) & $n_{\text{sup}} + n_{\text{sup}} g$ & 144 & 0.1068 \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{The selector scores fewer candidates than flat block selection at small $S_1$, but runs slower
+than dense attention in our implementation.} Scores counted per query and head, including masked candidates;
+pooling, projections and attention over the selected tokens are excluded. Step times are from one smoke test per
+setting on one NVIDIA L40S (M5 profile), without fused kernels.}
+\label{tab:cost}
+\end{table}
+
+\subsection{Models and training recipe}
+
+Every model has 2 layers, width 128 and 4 heads; only the sequence mixer changes. The dense baseline is Zoology's
+multi-head attention, which applies dropout 0.1 inside attention; the selector has none. We train with AdamW
+(learning rate $3.2\times10^{-4}$, weight decay 0.1, cosine schedule over 60 epochs, effective batch 16, no gradient
+clipping) on 20{,}000 training sequences, and stop early once validation recall exceeds 0.98. The learning rate was
+the only one, among those tried in earlier work in this project, that converged for attention models at
+$L \ge 512$. We did not tune it per model.
+
+\subsection{Protocol}
+
+\paragraph{Metric.} Each run is scored on 2{,}000 held-out sequences that are never used for training or checkpoint
+choice. The primary metric is held-out recall at the epoch of best validation recall (the earliest such epoch on a
+tie); final-epoch recall is kept in every run record. MQAR is learned through an
+abrupt phase change; we call a run \emph{transitioned} once its validation recall exceeds 0.30, and a run that never
+does so within 60 epochs a \emph{non-transition}.
+
+\paragraph{Two numerical profiles, never pooled.} The M4 experiments (\S\ref{sec:selection},
+\S\ref{sec:fixes}) used float32 and Zoology's original data generator, whose noise tokens draw from the global
+random state (\emph{legacy} data). The M5 experiments (\S\ref{sec:budget}, \S\ref{sec:dense}) used TF32 matrix
+multiplication and a data generator with its own random stream (\emph{isolated} data), so that a seed fixes the data
+exactly. Under the M5 profile, all models on a given seed trained and were tested on identical splits, which we verify
+with SHA-256 hashes stored in each run's manifest.
+
+\paragraph{Seeds, pre-registration and deviations.} Seed 123 is a pilot seed whose held-out split has informed design decisions
+since M4; we label its results exploratory. Seeds 231 and 312 are further pilot seeds. Seeds 810001--810003 were
+reserved on 1 October 2026 and not used before the M5 confirmation runs. Every training experiment's run list, metric and
+decision rule were committed to the project's public repository before its data existed; the git history timestamps
+them, though such timestamps are self-attested. The selection diagnostic of \S\ref{sec:selection} is post hoc. We
+report every run, including non-transitions. Two deviations from the protocols occurred: the dense diagnostic runs on
+seed 123 moved from one cloud provider to another (same GPU type and code) because no capacity was available, and we
+stopped one float32 dense run (seed 810001) after 55 of its 60 pre-registered epochs, so it has no held-out score.

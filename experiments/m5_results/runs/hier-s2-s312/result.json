@@ -1,0 +1,40 @@
+{
+  "run_id": "m4-L2048-s2-k4-baseline-seed312",
+  "arm": "baseline",
+  "s1": 2,
+  "seed": 312,
+  "protocol_conformant": false,
+  "protocol_profile": "m5-isolated-data-draft-v1",
+  "data_rng": "isolated",
+  "task": "mqar",
+  "status": "complete",
+  "split_overlap": {
+    "heldout_in_train": 0,
+    "heldout_in_validation": 0,
+    "validation_in_train": 0
+  },
+  "heldout_best_window_split": {
+    "in_window": {
+      "accuracy": 0.9864864864864865,
+      "queries": 148
+    },
+    "out_of_window": {
+      "accuracy": 0.8361787283273142,
+      "queries": 255852
+    },
+    "window": 32
+  },
+  "epochs_run": 60,
+  "early_stopped": false,
+  "time_capped": false,
+  "futility_stopped": false,
+  "PRIMARY_test_accuracy_at_best_validation": 0.836265625,
+  "best_validation_accuracy": 0.8369140625,
+  "best_validation_epoch": 46,
+  "test_loss_at_best_validation": 1.3983267478942871,
+  "final_validation_accuracy": 0.8333515625,
+  "test_accuracy_final": 0.83396875,
+  "final_five_validation_mean": 0.8335523437500001,
+  "jump_epoch_validation_above_0.30": 35,
+  "wall_seconds": 10339.1
+}

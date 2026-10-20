@@ -1,0 +1,73 @@
+{
+  "runs": {
+    "dense-fp32-isolated-s810001": {
+      "precision": "fp32",
+      "data_rng": "isolated",
+      "epochs_done": 55,
+      "best_val": 0.006801,
+      "best_val_epoch": 54,
+      "jump_epoch": null,
+      "last_val": 0.006801,
+      "last_valid_loss": 8.119,
+      "status": "stopped by owner (not complete)",
+      "heldout": null
+    },
+    "dense-fp32-isolated-s810003": {
+      "precision": "fp32",
+      "data_rng": "isolated",
+      "epochs_done": 60,
+      "best_val": 0.007121,
+      "best_val_epoch": 57,
+      "jump_epoch": null,
+      "last_val": 0.007113,
+      "last_valid_loss": 8.1302,
+      "status": "complete",
+      "heldout": 0.006890625,
+      "wall_h": 2.11,
+      "early_stopped": false
+    }
+  },
+  "per_seed": [
+    {
+      "seed": 810001,
+      "dense_tf32_m5": 0.01212109375,
+      "dense_tf32_m5_transitioned": false,
+      "s1_2": 0.57805078125,
+      "s1_6": 0.936640625,
+      "dense_fp32": null,
+      "dense_fp32_best_val": 0.006801,
+      "dense_fp32_transitioned": false,
+      "dense_fp32_status": "stopped by owner (not complete)",
+      "identical_data_with_m5_dense_s1_2_s1_6": true,
+      "valid_dense_pair": false
+    },
+    {
+      "seed": 810002,
+      "dense_tf32_m5": 1.0,
+      "dense_tf32_m5_transitioned": true,
+      "s1_2": 0.70887109375,
+      "s1_6": 0.944796875,
+      "valid_dense_pair": true
+    },
+    {
+      "seed": 810003,
+      "dense_tf32_m5": 0.0064609375,
+      "dense_tf32_m5_transitioned": false,
+      "s1_2": 0.01147265625,
+      "s1_6": 0.9445078125,
+      "dense_fp32": 0.006890625,
+      "dense_fp32_best_val": 0.007121,
+      "dense_fp32_transitioned": false,
+      "dense_fp32_status": "complete",
+      "identical_data_with_m5_dense_s1_2_s1_6": true,
+      "valid_dense_pair": false
+    }
+  ],
+  "transitions_isolated_data": {
+    "tf32 (M5: 123, 810001, 810002, 810003)": "1/4",
+    "fp32 (123 dense check; 810001, 810003 here)": "1/3",
+    "S1=6 (123, 810001-3)": "4/4",
+    "S1=2 (123, 231, 312, 810001-3)": "5/6"
+  },
+  "note": "810001 was stopped by the owner after 55 of 60 epochs (no held-out evaluation); 810003 completed 60"
+}

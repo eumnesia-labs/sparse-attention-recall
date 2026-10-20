@@ -1,0 +1,14 @@
+[
+  {
+    "exception": "RemoteError('Function call was cancelled by user or a failure.')"
+  },
+  {
+    "exception": "RemoteError('Function call was cancelled by user or a failure.')"
+  },
+  {
+    "exception": "RemoteError('Function call was cancelled by user or a failure.')"
+  },
+  {
+    "exception": "RemoteError('Function call was cancelled by user or a failure.')"
+  }
+]

@@ -1,0 +1,293 @@
+[
+  {
+    "label": "hier-s6-s123",
+    "returncode": 0,
+    "stderr_tail": "",
+    "report": [
+      {
+        "run": "hier-s6-s123",
+        "arm": "baseline",
+        "s1": 6,
+        "seed": 123,
+        "n_sequences": 8,
+        "n_queries": 1024,
+        "accuracy_reproduced": 0.9599609375,
+        "recorded_primary": 0.96200390625,
+        "validity_gate": null,
+        "gate_parts": {
+          "accuracy": null,
+          "loss": null,
+          "split_fingerprint": true,
+          "loss_reproduced": 0.3748111128807068,
+          "loss_recorded": 0.35135396432876587
+        },
+        "value_in_window_frac": 0.0,
+        "reachable_frac": 1.0,
+        "seconds": 1.4,
+        "device": "cuda",
+        "tf32": true,
+        "data_rng": "isolated",
+        "layers": [
+          {
+            "layer": 0,
+            "parent_hit_any_head": 0.9609375,
+            "block_hit_any_head": 0.4697265625,
+            "block_hit_per_head": [
+              0.193359375,
+              0.24609375,
+              0.171875,
+              0.16796875
+            ],
+            "acc_given_block_hit": 0.9646569646569647,
+            "acc_given_block_miss": 0.9558011049723757,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.4697265625,
+                "acc": 0.9646569646569647
+              },
+              "1": {
+                "frac": 0.2353515625,
+                "acc": 0.946058091286307
+              },
+              "2": {
+                "frac": 0.130859375,
+                "acc": 0.9626865671641791
+              },
+              "3_to_8": {
+                "frac": 0.1123046875,
+                "acc": 0.9565217391304348
+              },
+              "over_8_or_none": {
+                "frac": 0.0517578125,
+                "acc": 0.9811320754716981
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.29296875,
+                "acc": 0.9533333333333334,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5233333333333333,
+                "acc_given_hit": 0.9617834394904459,
+                "acc_given_miss": 0.9440559440559441,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.2255859375,
+                "acc": 0.987012987012987,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.5627705627705628,
+                "acc_given_hit": 0.9846153846153847,
+                "acc_given_miss": 0.9900990099009901,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.259765625,
+                "acc": 0.9661654135338346,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.4849624060150376,
+                "acc_given_hit": 0.9767441860465116,
+                "acc_given_miss": 0.9562043795620438,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1396484375,
+                "acc": 0.9370629370629371,
+                "parent_hit_any_head": 0.951048951048951,
+                "block_hit_any_head": 0.32867132867132864,
+                "acc_given_hit": 0.9361702127659575,
+                "acc_given_miss": 0.9375,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.6083916083916084,
+                "parent_hit_random_policy": 0.9070927500724792
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08203125,
+                "acc": 0.9285714285714286,
+                "parent_hit_any_head": 0.6071428571428571,
+                "block_hit_any_head": 0.21428571428571427,
+                "acc_given_hit": 0.8333333333333334,
+                "acc_given_miss": 0.9545454545454546,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6321969628334045
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.9599609375,
+                "parent_hit_any_head": 0.9609375,
+                "block_hit_any_head": 0.4697265625
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          },
+          {
+            "layer": 1,
+            "parent_hit_any_head": 1.0,
+            "block_hit_any_head": 0.958984375,
+            "block_hit_per_head": [
+              0.6875,
+              0.7646484375,
+              0.6640625,
+              0.7587890625
+            ],
+            "acc_given_block_hit": 1.0,
+            "acc_given_block_miss": 0.023809523809523808,
+            "nearest_selected_offset": {
+              "0_key_block": {
+                "frac": 0.958984375,
+                "acc": 1.0
+              },
+              "1": {
+                "frac": 0.0234375,
+                "acc": 0.041666666666666664
+              },
+              "2": {
+                "frac": 0.0107421875,
+                "acc": 0.0
+              },
+              "3_to_8": {
+                "frac": 0.00390625,
+                "acc": 0.0
+              },
+              "over_8_or_none": {
+                "frac": 0.0029296875,
+                "acc": 0.0
+              }
+            },
+            "by_query_position": [
+              {
+                "q_from": 0,
+                "q_to": 256,
+                "frac_queries": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null,
+                "acc_given_hit": null,
+                "acc_given_miss": null,
+                "reachable_frac": null,
+                "parent_hit_recency_policy": null,
+                "parent_hit_random_policy": null
+              },
+              {
+                "q_from": 256,
+                "q_to": 352,
+                "frac_queries": 0.29296875,
+                "acc": 0.9533333333333334,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.95,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.06666666666666667,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 352,
+                "q_to": 528,
+                "frac_queries": 0.2255859375,
+                "acc": 0.987012987012987,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.987012987012987,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 528,
+                "q_to": 1024,
+                "frac_queries": 0.259765625,
+                "acc": 0.9661654135338346,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9661654135338346,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 1.0,
+                "parent_hit_random_policy": 1.0
+              },
+              {
+                "q_from": 1024,
+                "q_to": 1536,
+                "frac_queries": 0.1396484375,
+                "acc": 0.9370629370629371,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9370629370629371,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.6083916083916084,
+                "parent_hit_random_policy": 0.9070927500724792
+              },
+              {
+                "q_from": 1536,
+                "q_to": 2048,
+                "frac_queries": 0.08203125,
+                "acc": 0.9285714285714286,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.9285714285714286,
+                "acc_given_hit": 1.0,
+                "acc_given_miss": 0.0,
+                "reachable_frac": 1.0,
+                "parent_hit_recency_policy": 0.0,
+                "parent_hit_random_policy": 0.6321969628334045
+              }
+            ],
+            "by_reachability": {
+              "reachable": {
+                "frac": 1.0,
+                "acc": 0.9599609375,
+                "parent_hit_any_head": 1.0,
+                "block_hit_any_head": 0.958984375
+              },
+              "unreachable": {
+                "frac": 0.0,
+                "acc": null,
+                "parent_hit_any_head": null,
+                "block_hit_any_head": null
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

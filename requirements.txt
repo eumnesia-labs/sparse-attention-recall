@@ -1,0 +1,4 @@
+# Analysis and figures. For training and tests, use experiments/setup_cpu_env.sh (pinned versions).
+torch==2.14.0
+numpy
+matplotlib

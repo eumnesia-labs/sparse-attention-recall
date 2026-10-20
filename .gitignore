@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.venv-cpu/
+/zoology/
+wandb/
+results/
+*.pt
+.DS_Store
+# LaTeX build output
+*.aux
+*.log
+*.out
+*.blg
+*.synctex.gz

@@ -1,0 +1,65 @@
+{
+ "status": "complete",
+ "kinds": {
+  "hier-s6": {
+   "ok": true,
+   "rc": 0,
+   "s_per_step": 0.0828,
+   "wall_s": 175.5,
+   "epoch_s": [
+    92.06,
+    4.1,
+    4.09,
+    4.13,
+    4.15,
+    4.14,
+    4.14,
+    4.16
+   ],
+   "gpu_max_mem_gb": 8.02,
+   "timed_epochs": 7
+  }
+ },
+ "concurrency": {
+  "hier-s6": {
+   "1": {
+    "s_per_step": 0.0828,
+    "throughput": 1.0
+   },
+   "2": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   },
+   "3": {
+    "skipped": "not measured: round 1b's smoke on g6e.xlarge found 2 and 3 copies slower in total for every kind (throughput 0.85-0.89), so every kind runs one at a time"
+   }
+  }
+ },
+ "cuda_equivalence": {
+  "ok": true,
+  "tail": "C1 integer hashing\n  PASS  splitmix64 bit-identical\n  PASS  priority order key bit-identical\n  PASS  bit packing identical\nC2 bucket lookup\n  PASS  code space 6: retained sets and occupancy identical  63787 overflowing probes\n  PASS  code space 40: retained sets and occupancy identical  53945 overflowing probes\n  PASS  code space 4294967296: retained sets and occupancy identical  0 overflowing probes\nC3 full module (float64)\n  PASS  logsumexp, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  logsumexp, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, eval: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n  PASS  max, train: candidate and selected sets identical; output diff <= 1e-9  max |diff| 4.44e-16\n\nALL PASS\n/opt/pytorch/lib/python3.13/site-packages/torch/cuda/__init__.py:68: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.\n  import pynvml  # type: ignore[import]\n"
+ },
+ "workers_by_kind": {
+  "hier-s6": 1
+ },
+ "smoke_s": 204.2,
+ "estimate": {
+  "hours_per_60_epoch_run": {
+   "hier-s6": 3.62
+  },
+  "workers_by_kind": {
+   "hier-s6": 1
+  },
+  "throughput": {
+   "hier-s6": 1.0
+  },
+  "phases": [
+   {
+    "phase": "S1=6 confirmation",
+    "runs": 3,
+    "usd": 21.05,
+    "cumulative_usd": 21.05
+   }
+  ],
+  "note": "estimate assuming no early stopping; early stop and the futility rule shorten runs"
+ }
+}

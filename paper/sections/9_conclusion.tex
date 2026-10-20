@@ -1,0 +1,14 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+On MQAR at length 2048 with a fixed fine budget, a two-level block selector recalled more as it kept more
+super-blocks, up to a point: on identical data, keeping six beat keeping two on all four seeds, and keeping all twelve
+(effectively flat selection) did worse on the one seed where both were run. Where dense attention learned, it beat
+both settings run on that seed, by 0.291 at the cheapest and 0.055 at six super-blocks, so none met our pre-registered bar of 0.02.
+Because this task lets the coarse level be solved by position, the curve speaks to how reliably the selector learns to
+choose, not to information lost by pruning. Replaying the trained models, errors followed wrong block choices rather than failed
+reading; the cheapest setting kept missing the right super-block despite the shortcut, and two intuitive repairs made
+recall worse. Dense attention itself learned on only two of four seeds
+within our training budget. These results come from one synthetic task with a positional shortcut, small models and few
+seeds. We hope the protocol---matched data, untouched seeds, and every failure reported---is useful to others
+measuring what sparse attention gives up.

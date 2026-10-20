@@ -1,0 +1,17 @@
+{
+  "launch": "custom-20261005T060131Z",
+  "plan": "custom",
+  "commit": "790bd27f3ae3d4a272a64b77f2f83c9870285b13",
+  "dirty": false,
+  "calls": [
+    {
+      "arm": "dense",
+      "s1": null,
+      "seed": 123,
+      "label": "dense-seed123-tf32",
+      "precision": "tf32",
+      "call_id": "fc-01M45AEE5XJK5RAZGNMSRVTGS8"
+    }
+  ],
+  "spawned_utc": "20261005T060131Z"
+}

@@ -1,0 +1,25 @@
+{
+  "launch": "screen-20260930T055659Z",
+  "seed": 123,
+  "commit": "035bd3dcd1ddfc313509a8336b6439677efa70c2",
+  "dirty": false,
+  "calls": [
+    {
+      "arm": "baseline",
+      "call_id": "fc-01M3RE6GXX66ZPDBYQ6E7TVR8D"
+    },
+    {
+      "arm": "router",
+      "call_id": "fc-01M3RE6H7Y7RH6XB2NP7T0SA24"
+    },
+    {
+      "arm": "maxpool",
+      "call_id": "fc-01M3RE6HHHEDEY2EYTBP75DY6Z"
+    },
+    {
+      "arm": "router+maxpool",
+      "call_id": "fc-01M3RE6HV5XT7NWFB3XYRMGFS9"
+    }
+  ],
+  "spawned_utc": "20260930T055659Z"
+}

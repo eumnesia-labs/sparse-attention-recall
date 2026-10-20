@@ -1,0 +1,318 @@
+{
+  "run_id": "m4-L2048-s6-k4-baseline-seed123",
+  "run_folder": "m4-L2048-s6-k4-baseline-seed123__20261003T070426Z",
+  "started_utc": "20261003T070426Z",
+  "arm": "baseline",
+  "arm_kwargs": {},
+  "seed": 123,
+  "mixer": "hier_nsa.HierSparseAttention",
+  "s1": 6,
+  "dense_dropout": null,
+  "task": "mqar",
+  "task_variant": null,
+  "num_kv_pairs": 128,
+  "precision": "tf32",
+  "data_rng": "isolated",
+  "mask_mode": "sentinel",
+  "router_telemetry": true,
+  "data_config_class": "m4_data.SeededMQARConfig",
+  "cache_namespace": "mqar-isolated-cpu-v1",
+  "split_hashes": {
+    "heldout_test": {
+      "inputs": {
+        "sha256": "aff53cb0604ac745f552011d1875adf74039efbda09bd31ae0c634a3910ed78d",
+        "dtype": "torch.int64",
+        "shape": [
+          2000,
+          2048
+        ]
+      },
+      "targets": {
+        "sha256": "d0fc5626fb0900f0ad000c3bee846279183c8094401654e103048026e41e2744",
+        "dtype": "torch.int64",
+        "shape": [
+          2000,
+          2048
+        ]
+      }
+    },
+    "train": {
+      "inputs": {
+        "sha256": "5f9e4a06215eb6f251cd77635fde7c0b8b058a0bb1be08cd70ae21618e5b0c0a",
+        "dtype": "torch.int64",
+        "shape": [
+          20000,
+          2048
+        ]
+      },
+      "targets": {
+        "sha256": "9db21dcdcf322f29a69b082acf72af7b966c6dfb4583903e54265e44b2bbb819",
+        "dtype": "torch.int64",
+        "shape": [
+          20000,
+          2048
+        ]
+      }
+    },
+    "validation": {
+      "inputs": {
+        "sha256": "34295e592b87d0979f6591b8326485d3a0d4abfa40a43139c7ca0d5bddaa315e",
+        "dtype": "torch.int64",
+        "shape": [
+          2000,
+          2048
+        ]
+      },
+      "targets": {
+        "sha256": "2a2dfe9a055cb35c37e3a1998afecea38d96a24547e4149f15d5556be2a015b2",
+        "dtype": "torch.int64",
+        "shape": [
+          2000,
+          2048
+        ]
+      }
+    }
+  },
+  "data_seeds": {
+    "train": 843828734,
+    "validation": 3062119789,
+    "heldout_test": 2683282782
+  },
+  "split_sizes": {
+    "train": 20000,
+    "validation": 2000,
+    "heldout_test": 2000
+  },
+  "data_cache_hit_at_start": {
+    "train": true,
+    "validation": true,
+    "heldout_test": true
+  },
+  "data_cache_dir": "/opt/work/round2a/cache/mqar-isolated-cpu-v1",
+  "protocol": {
+    "seq_len": 2048,
+    "num_kv_pairs": 128,
+    "vocab_size": 8192,
+    "d_model": 128,
+    "n_layers": 2,
+    "learning_rate": 0.00032,
+    "weight_decay": 0.1,
+    "early_stopping_threshold": 0.98,
+    "s1": 6,
+    "k_sel": 4,
+    "compress_block_size": 16,
+    "sliding_window_size": 32,
+    "num_heads": 4,
+    "micro_batch": 8,
+    "grad_accum": 2,
+    "grad_clip": 0.0,
+    "epochs": 60,
+    "n_train": 20000,
+    "n_val": 2000,
+    "n_test": 2000,
+    "superblock_group": 11,
+    "n_superblocks": 12,
+    "coarse_pairs_per_query": 78,
+    "selection_rule": "best validation accuracy, earliest epoch on ties",
+    "primary_metric": "held-out test accuracy of the best-validation checkpoint",
+    "train_data_order": "fixed each epoch (zoology DataLoader shuffle=False)"
+  },
+  "protocol_conformant": false,
+  "protocol_profile": "m5-isolated-data-draft-v1",
+  "protocol_certification": {
+    "conformant": false,
+    "profile": "m5-isolated-data-draft-v1",
+    "preregistration_status": "draft",
+    "expected_design": {
+      "arm": "baseline",
+      "allowed_s1": [
+        2,
+        4,
+        6,
+        12
+      ],
+      "mixer": "hier_nsa.HierSparseAttention",
+      "mixer_kwargs": {
+        "num_heads": 4,
+        "sliding_window_size": 32,
+        "compress_block_size": 16,
+        "selection_block_size": 16,
+        "num_selected_blocks": 4,
+        "superblock_group": 11,
+        "num_selected_superblocks": 6,
+        "causal": true,
+        "router_telemetry": true
+      },
+      "dense_dropout": null,
+      "data_rng": "isolated",
+      "mask_mode": "sentinel",
+      "router_telemetry": true,
+      "recipe": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 6,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000
+      }
+    },
+    "actual_design": {
+      "arm": "baseline",
+      "s1": 6,
+      "mixer": "hier_nsa.HierSparseAttention",
+      "mixer_kwargs": {
+        "num_heads": 4,
+        "sliding_window_size": 32,
+        "compress_block_size": 16,
+        "selection_block_size": 16,
+        "num_selected_blocks": 4,
+        "superblock_group": 11,
+        "num_selected_superblocks": 6,
+        "causal": true,
+        "router_telemetry": true
+      },
+      "dense_dropout": null,
+      "data_rng": "isolated",
+      "recipe": {
+        "seq_len": 2048,
+        "num_kv_pairs": 128,
+        "vocab_size": 8192,
+        "d_model": 128,
+        "n_layers": 2,
+        "learning_rate": 0.00032,
+        "weight_decay": 0.1,
+        "early_stopping_threshold": 0.98,
+        "s1": 6,
+        "k_sel": 4,
+        "compress_block_size": 16,
+        "sliding_window_size": 32,
+        "num_heads": 4,
+        "micro_batch": 8,
+        "grad_accum": 2,
+        "grad_clip": 0.0,
+        "epochs": 60,
+        "n_train": 20000,
+        "n_val": 2000,
+        "n_test": 2000
+      },
+      "mask_mode": "sentinel",
+      "router_telemetry": true,
+      "task": "mqar",
+      "data_cache_hit_at_start": {
+        "train": true,
+        "validation": true,
+        "heldout_test": true
+      }
+    },
+    "mismatches": [
+      "overrides"
+    ]
+  },
+  "overrides": {
+    "precision": "tf32"
+  },
+  "max_hours": 0.0,
+  "code": {
+    "commit": "301648d2f932e2dd86dcc98a3c4b8a337822140b",
+    "dirty": false,
+    "hier_nsa_sha256": "52275b9034654f5899580be73556928255db0a6d608725b4d8cb336bd5316235",
+    "script_sha256": "9b7a4586e39d7276c14945faa45be41d81fd763c2d874d95f33f6970bc81134e",
+    "data_helper_sha256": "fc6a098cfeafeecde2d088a1d7b59f10b2b198da9db2cceeef9966966533ebf6",
+    "telemetry_helper_sha256": "e8c9aa1ae77ded11201fc27fe5397e34f2e8811fc7fe193678ee4c5c25b551e7",
+    "zoology_dir": "/opt/ssa/zoology",
+    "zoology_pin": "1ad20d1",
+    "zoology_patched": true
+  },
+  "env": {
+    "python": "3.13.15",
+    "torch": "2.14.0+cu130",
+    "cuda": "13.0",
+    "device": "cuda",
+    "device_name": "NVIDIA L40S",
+    "hostname": "<ec2-host>",
+    "platform": "Linux-7.0.0-1013-aws-x86_64-with-glibc2.43",
+    "argv": [
+      "/opt/ssa/repo/experiments/m4_routing_arms.py",
+      "--arm",
+      "baseline",
+      "--s1",
+      "6",
+      "--router-telemetry",
+      "--task",
+      "mqar",
+      "--data-rng",
+      "isolated",
+      "--seed",
+      "123",
+      "--precision",
+      "tf32",
+      "--report-run-dir",
+      "/opt/work/round2a/runs/hier-s6-s123/.run_dir",
+      "--out-root",
+      "/opt/work/round2a/runs/hier-s6-s123",
+      "--device",
+      "cuda",
+      "--cache-dir",
+      "/opt/work/round2a/cache",
+      "--commit",
+      "301648d2f932e2dd86dcc98a3c4b8a337822140b",
+      "--dirty",
+      "0",
+      "--sync-cmd",
+      "aws s3 sync {run_dir} s3://<checkpoint-bucket>/round2a/runs/hier-s6-s123/\"$(basename {run_dir})\" --only-show-errors"
+    ],
+    "precision": "tf32",
+    "float32_matmul_precision": "high",
+    "cuda_matmul_allow_tf32": true,
+    "cudnn_allow_tf32": true
+  },
+  "identity": {
+    "run_id": "m4-L2048-s6-k4-baseline-seed123",
+    "arm": "baseline",
+    "seed": 123,
+    "s1": 6,
+    "task": "mqar",
+    "data_rng": "isolated",
+    "task_variant": null,
+    "num_kv_pairs": 128,
+    "precision": "tf32",
+    "epochs": 60,
+    "n_train": 20000,
+    "n_val": 2000,
+    "n_test": 2000,
+    "learning_rate": 0.00032,
+    "mixer": "hier_nsa.HierSparseAttention",
+    "mixer_kwargs": {
+      "num_heads": 4,
+      "sliding_window_size": 32,
+      "compress_block_size": 16,
+      "selection_block_size": 16,
+      "num_selected_blocks": 4,
+      "superblock_group": 11,
+      "num_selected_superblocks": 6,
+      "causal": true,
+      "router_telemetry": true
+    },
+    "futility": null,
+    "code_sha256": {
+      "hier_nsa_sha256": "52275b9034654f5899580be73556928255db0a6d608725b4d8cb336bd5316235",
+      "script_sha256": "9b7a4586e39d7276c14945faa45be41d81fd763c2d874d95f33f6970bc81134e",
+      "data_helper_sha256": "fc6a098cfeafeecde2d088a1d7b59f10b2b198da9db2cceeef9966966533ebf6",
+      "telemetry_helper_sha256": "e8c9aa1ae77ded11201fc27fe5397e34f2e8811fc7fe193678ee4c5c25b551e7"
+    }
+  }
+}
