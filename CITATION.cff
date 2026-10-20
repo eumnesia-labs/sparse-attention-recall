@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite them as below."
+title: "Does a Cheap Block Selector Keep Recall? A Pre-Registered Budget Study on MQAR"
+authors:
+  - family-names: Singh
+    given-names: Anuj Dev
+    affiliation: Independent Researcher
+license: MIT
+repository-code: "https://github.com/eumnesia-labs/sparse-attention-recall"
+type: software
