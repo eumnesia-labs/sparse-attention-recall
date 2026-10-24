@@ -53,7 +53,7 @@ PROTOCOL = dict(seq_len=2048, num_kv_pairs=128, vocab_size=8192, d_model=128, n_
 HELDOUT_SALT = 0x5EED7E57   # separates the held-out seed stream from zoology's train/val draws
 
 
-def _args():
+def _args(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--arm", required=True, choices=sorted(ARMS))
     ap.add_argument("--seed", type=int, default=123)
@@ -75,7 +75,16 @@ def _args():
     ap.add_argument("--commit", default=None, help="code commit (launchers pass it; else read from git)")
     ap.add_argument("--dirty", type=int, choices=[0, 1], default=None)
     ap.add_argument("--report-run-dir", default=None, help="write the run folder path to this file")
-    return ap.parse_args()
+    ap.add_argument("--task", choices=["mqar"], default="mqar")
+    ap.add_argument("--precision", choices=["fp32", "tf32"], default="fp32")
+    return ap.parse_args(argv)
+
+
+def configure_precision(torch, precision):
+    """Match the historical M5 runner; fp32 preserves the legacy defaults."""
+    if precision == "tf32":
+        torch.set_float32_matmul_precision("high")
+        torch.backends.cudnn.allow_tf32 = True
 
 
 def _git_info():
@@ -234,8 +243,12 @@ def main():
     from m4_data import (SeededMQARConfig, ISOLATED_CACHE_NAMESPACE,
                          cache_directory, segment_fingerprints)
 
+    configure_precision(torch, a.precision)
+
     overrides = {k: v for k, v in (("epochs", a.epochs), ("n_train", a.n_train), ("n_val", a.n_val),
                                    ("n_test", a.n_test)) if v != P[k]}
+    if a.precision != "fp32":
+        overrides["precision"] = a.precision
     nblk = math.ceil(P["seq_len"] / P["compress_block_size"])
     g = max(2, round(math.sqrt(nblk)))
     nsup = math.ceil(nblk / g)
@@ -324,6 +337,7 @@ def main():
         "arm": a.arm, "arm_kwargs": DENSE if dense else ARMS[a.arm], "seed": a.seed,
         "mixer": mixer.name, "s1": s1,
         "dense_dropout": mixer.kwargs.get("dropout") if dense else None,
+        "task": a.task, "precision": a.precision,
         "data_rng": a.data_rng,
         "mask_mode": None if dense else a.mask_mode,
         "router_telemetry": False if dense else a.router_telemetry,
@@ -360,6 +374,7 @@ def main():
     result = {"run_id": run_id, "arm": a.arm, "s1": s1, "seed": a.seed,
               "protocol_conformant": certification["conformant"],
               "protocol_profile": certification["profile"], "data_rng": a.data_rng,
+              "task": a.task, "precision": a.precision,
               "status": "started"}
     st = {"task": None, "logger": None}
     try:

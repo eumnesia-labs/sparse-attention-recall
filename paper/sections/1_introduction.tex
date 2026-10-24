@@ -23,10 +23,10 @@ data splits. Every training run was pre-registered and is reported, and the fina
 touched during design.
 
 Raising $S_1$ from 2 to 6 helped consistently: on identical data, $S_1{=}6$ beat $S_1{=}2$ on all four seeds where
-both were run, by 0.24 to 0.36 where both learned ($S_1{=}2$ never learned on the fourth), and held 0.937--0.945 on three untouched seeds (Figure~\ref{fig:budget}). Keeping
+both were run, by 0.24 to 0.36 where both learned ($S_1{=}2$ never learned on the fourth), and held 0.937--0.945 in a pre-specified follow-up on three reserved seeds (Figure~\ref{fig:budget}). Keeping
 every super-block ($S_1{=}12$, which amounts to flat block selection here) did worse than $S_1{=}6$ on the one seed
 where both were run. On the one reserved seed where dense attention learned, it beat $S_1{=}2$ by 0.291 and $S_1{=}6$ by
-0.055; no setting met our pre-registered bar of 0.02.
+0.055; no evaluated setting met our pre-registered bar of 0.02.
 
 What the budget axis measures needs care. Every key in this MQAR layout lies in the first two super-blocks, so even
 $S_1{=}2$ could find the right super-block by position; raising $S_1$ mainly widens the set of blocks the fine level
@@ -47,7 +47,7 @@ reached perfect recall; why it often did not learn within our training budget re
 \paragraph{Contributions.}
 \begin{itemize}
 \item \textbf{A pre-registered recall-versus-budget measurement.} Held-out MQAR recall for a two-level block selector
-at four values of $S_1$, with dense attention on identical splits, untouched confirmation seeds, and every
+at four values of $S_1$, with dense attention on identical splits, reserved confirmation seeds, and every
 non-transition reported (Section~\ref{sec:budget}).
 \item \textbf{A diagnosis of where recall is lost.} Given a correct block choice, recall is 0.978--1.000 across the
 eleven trained selectors that learned; the gain from $S_1{=}2$ to $S_1{=}6$ comes from fewer wrong choices at both

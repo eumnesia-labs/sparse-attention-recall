@@ -15,21 +15,26 @@ through the language-model loss~\cite{hu2026hils}. Several of these papers vary 
 retrieval-sensitive benchmarks. Our
 selector is a simpler member of this family, and we claim no algorithmic novelty. HiLS is closest in spirit; it
 measures retrieval in small models under matched sparse budgets on RULER. We differ in scale and in protocol: one
-synthetic task, but a dense model on byte-identical splits for every comparison, untouched confirmation seeds, and
+synthetic task, but a dense model on byte-identical splits for every comparison, reserved confirmation seeds, and
 every failed run reported. The Sparse Frontier studies sparsity--accuracy trade-offs of training-free methods in
 large pretrained models across tasks and lengths~\cite{nawrot2025sparsefrontier}; our setting is the opposite end:
-models trained from scratch with the selector, at toy scale.
+models trained from scratch with the selector, at toy scale. Two recent methods train selection end to end: SAS injects
+the selector's continuous scores into attention logits so the language-modelling loss trains the ranking, and
+compares gate forms~\cite{li2026sas}; FreeSolo pairs a sliding window with a learned long-range cell selector and
+reports zero-shot length extrapolation~\cite{shi2026freesolo}. Our failed router gate (Section~\ref{sec:fixes}) is one
+implementation on one task and does not test those designs.
 
 \paragraph{Recall in efficient sequence models.} Zoology introduced MQAR and showed that most of the quality gap
 between attention and gated-convolution models comes from associative recall~\cite{arora2024zoology}. Later work
 traced a trade-off between recall and recurrent state size in linear attention~\cite{arora2024based} and proved and measured that fixed-state
-models copy worse than transformers~\cite{jelassi2024repeat}. Long-context evaluations show that models use
+models copy worse than transformers~\cite{jelassi2024repeat}; MQAR results for recurrent models are also sensitive to the
+learning rate, which can make capacity conclusions from untuned runs misleading~\cite{okpekpe2025revisiting}. Long-context evaluations show that models use
 information unevenly across their inputs~\cite{liu2024lost}. These studies compare architectures; we hold the
 architecture fixed and vary how much of the context a sparse selector may consider.
 
 \paragraph{Efficiency claims and their evaluation.} Kernel-level work such as FlashAttention reports speed with its
 hardware, lengths and baselines stated~\cite{dao2022flashattention}. Some recent commercial reports pair large
 long-context speed-ups with benchmark scores but without a dense model trained under matched
-settings~\cite{subq2026,appen2026}. We do not evaluate those systems, whose mechanisms are not public. Our point is
-methodological: a recall cost can only be attributed to sparsity when a matched dense model is trained on the same
-data, which is the comparison this study is built around.
+settings~\cite{subq2026,appen2026}. We do not evaluate those systems, whose mechanisms are not public. We use identical data to remove one source of confounding;
+the remaining mixer and optimisation differences (Section~\ref{sec:dense}) still prevent attributing the whole
+dense--selector gap to sparsity alone, and within-model controls are an equally valid design.

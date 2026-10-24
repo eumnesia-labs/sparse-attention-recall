@@ -1,7 +1,7 @@
-\section{Recall rises from $S_1{=}2$ to $S_1{=}6$, but no budget matches dense}
+\section{Recall rises from $S_1{=}2$ to $S_1{=}6$, but no evaluated setting matched dense}
 \label{sec:budget}
 
-We first trace recall against $S_1$ on the pilot seed, then test chosen settings on three untouched seeds against
+We first trace recall against $S_1$ on the pilot seed, then test chosen settings on three reserved seeds against
 dense attention trained on identical data. All results in this section use the M5 profile (TF32, isolated data;
 Section~\ref{sec:setup}), and $K{=}4$ throughout.
 
@@ -44,14 +44,15 @@ up to $S_1{=}6$. We therefore read the curve as a measure of how reliably the se
 not of information that pruning throws away. Section~\ref{sec:selection} shows what changes in the trained models: at $S_1{=}2$ they still
 miss the key's super-block on 4.5--14\% of queries, and from $S_1{=}4$ up they almost never do (at most 0.4\%).
 
-\subsection{On untouched seeds, $S_1{=}6$ beats $S_1{=}2$ every time but stays below dense}
+\subsection{On reserved seeds, $S_1{=}6$ beats $S_1{=}2$ every time but stays below dense}
 
 Before any M5 data we reserved seeds 810001--810003 and pre-registered a rule for which setting to confirm on them:
 the smallest $S_1$ whose pilot validation recall came within 0.02 of dense's, with a hold for the owner if dense or a
 pilot run \emph{failed}. Dense completed all 60 epochs without transitioning; we did not treat that as a failure, so
 every setting qualified and the rule chose $S_1{=}2$ vacuously. This reading of the hold clause was ours, made before
 the confirmation runs. We ran dense and $S_1{=}2$ on all three seeds, and then, under a second pre-registration written
-after the pilot, $S_1{=}6$ on all three (Table~\ref{tab:reserved}, Figure~\ref{fig:budget}b). Within a seed every
+after the pilot and after the dense and $S_1{=}2$ results on these seeds were known, $S_1{=}6$ on all three. The
+$S_1{=}6$ runs are therefore a pre-specified follow-up on the reserved seeds, not an untouched replication (Table~\ref{tab:reserved}, Figure~\ref{fig:budget}b). Within a seed every
 model trained and was tested on byte-identical splits, verified by SHA-256 hashes in the run manifests.
 
 \begin{table}[t]
@@ -82,17 +83,17 @@ seeds (0.937, 0.945, 0.945; standard deviation 0.005), while $S_1{=}2$ failed to
 
 Only seed 810002 gives a valid dense comparison, because dense did not transition on 810001 or 810003. There, dense
 beat $S_1{=}2$ by 0.291 and $S_1{=}6$ by 0.055. Our pre-registered criterion for ``near-dense'' was held-out recall
-within 0.02 of a transitioned dense model on the same seed; \textbf{no setting met it}. As unpaired context only: the
+within 0.02 of a transitioned dense model on the same seed; \textbf{no evaluated setting met it}. As unpaired context only: the
 other dense run that learned on the isolated data (float32, seed 123) also reached 1.000, and every $S_1{=}6$ run
 scored 0.937--0.962.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=\linewidth]{figures/fig1_budget.pdf}
-\caption{\textbf{Recall rises from $S_1{=}2$ to $S_1{=}6$, but no setting matches dense attention where dense
+\caption{\textbf{Recall rises from $S_1{=}2$ to $S_1{=}6$, but no evaluated setting matched dense attention where dense
 learned.} (a) Held-out recall against selector scores per query on pilot seed 123 (filled), with $S_1{=}2$ on pilot
 seeds 231 and 312 (open); $S_1{=}12$ is effectively flat selection. The dashed line marks dense recall on the
-isolated-data runs where it transitioned. (b) Held-out recall on three untouched seeds; within a seed all models saw
+isolated-data runs where it transitioned. (b) Held-out recall on three reserved seeds; within a seed all models saw
 identical data. ``No transition'' marks runs that never exceeded 0.30 validation recall within 60 epochs.
 $L{=}2048$, $K{=}4$, 128 key--value pairs, M5 profile.}
 \label{fig:budget}

@@ -78,6 +78,11 @@ Code, frozen protocols, per-run manifests (seeds, SHA-256 split hashes, environm
 metrics, training logs, the selection-diagnostic scripts (\texttt{experiments/diagnose\_routing.py},
 \texttt{experiments/modal\_diagnose\_m5.py}) and their outputs, and the scripts that regenerate the figures
 and the appendix tables are at
-\url{https://github.com/eumnesia-labs/sparse-attention-recall} (release v1.0, commit \texttt{abc9a9a}). Figures: \texttt{python3 paper/figures/make\_figures.py};
+\url{https://github.com/eumnesia-labs/sparse-attention-recall} (release v1.2). Figures: \texttt{python3 paper/figures/make\_figures.py};
 appendix table: \texttt{python3 paper/make\_tables.py}; each results folder's \texttt{summarize*.py} regenerates its
-summary from raw records. Training a model requires one GPU and the commands recorded in each run's manifest.
+summary from raw records. The M5 runs used a cloud version of the training harness that also contains unrelated,
+unpublished work and is not released. The release instead provides a portable runner with the same recipe
+(\texttt{--task mqar --precision tf32}), and \texttt{experiments/reproduce\_m5.py} turns any stored manifest into a
+local command without the cloud steps. The portable runner has not been checked for numerical equivalence with the
+original runs; hardware, library versions and nondeterminism can change outcomes. Training a model requires one GPU.
+Model checkpoints are not released.

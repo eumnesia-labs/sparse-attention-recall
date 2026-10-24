@@ -8,8 +8,8 @@ released~(Appendix~\ref{app:repro}).
 
 MQAR~\cite{arora2024zoology} presents a sequence of key--value pairs followed by queries; each query is a key seen
 earlier, and the model must output its value. A model that answers correctly must retrieve a specific earlier token
-pair by content, which is the ability that fixed-size recurrent states lose and attention keeps~\cite{arora2024zoology,
-jelassi2024repeat}. We use the Zoology implementation (pinned commit \texttt{1ad20d1}) at sequence length
+pair by content, which fixed-size recurrent states find harder than attention~\cite{arora2024zoology,
+jelassi2024repeat}, although recurrent results on MQAR are sensitive to optimisation~\cite{okpekpe2025revisiting}. We use the Zoology implementation (pinned commit \texttt{1ad20d1}) at sequence length
 $L{=}2048$ with 128 key--value pairs and a vocabulary of 8{,}192. In this layout all 128 pairs occupy the first 256
 tokens and the queries follow. We measure \emph{recall}: accuracy over query positions. Chance is about
 $10^{-4}$.
@@ -20,7 +20,7 @@ The selector is a two-level version of the compression--selection--window design
 values are mean-pooled into blocks of $c{=}16$ tokens ($128$ blocks at $L{=}2048$), and blocks are grouped into
 super-blocks of $g{=}11$ blocks ($12$ super-blocks). For each query and head:
 \begin{enumerate}
-\item score the query against every super-block summary that lies fully in the past, and keep the top $S_1$;
+\item score the query against the super-block summaries, mask those not fully in the past, and keep the top $S_1$;
 \item score the query against the $S_1 g$ block summaries inside the kept super-blocks; a softmax over these scores
 forms a \emph{coarse} branch;
 \item keep the top $K{=}4$ blocks and attend exactly over their $Kc{=}64$ raw tokens, the \emph{fine} branch;
@@ -36,8 +36,11 @@ epochs of training forwards) recorded no valid score near the constant and no no
 not occur there. The M4-profile runs recorded no such telemetry.
 
 Table~\ref{tab:cost} compares the work of choosing what to read. Selector work per query is
-$n_{\text{sup}} + \min(S_1, n_{\text{sup}})\,g$ scores, where $n_{\text{sup}}$ is the number of super-blocks that
-lie fully in the query's past (12 at the end of a length-2048 sequence). This grows as $O(\sqrt{L})$ for fixed $S_1$ when
+$n_{\text{sup}} + \min(S_1, n_{\text{sup}})\,g$ scores, where $n_{\text{sup}} = \lceil \lceil L/c \rceil / g \rceil$
+is the number of super-block slots (12 at $L{=}2048$; the last is padded and nominally ends at token 2112, so at most
+11 are ever fully past). The count includes masked and padded slots: every slot is scored, and causal masks then
+decide which candidates are eligible. A masked parent can still be kept as a top-$S_1$ placeholder, and its fully-past
+child blocks remain eligible, which is how $S_1{=}12$ covers every past block. This grows as $O(\sqrt{L})$ for fixed $S_1$ when
 $g \approx \sqrt{L/c}$, giving $O(L^{1.5})$ per sequence, the same exponent as content-routed
 attention~\cite{roy2021routing}. We report this count because it is the quantity the budget controls. \textbf{It
 is not runtime}: our implementation has no fused kernel, and every selector setting ran 1.5--2.3$\times$
@@ -91,7 +94,7 @@ with SHA-256 hashes stored in each run's manifest.
 \paragraph{Seeds, pre-registration and deviations.} Seed 123 is a pilot seed whose held-out split has informed design decisions
 since M4; we label its results exploratory. Seeds 231 and 312 are further pilot seeds. Seeds 810001--810003 were
 reserved on 1 October 2026 and not used before the M5 confirmation runs. Every training experiment's run list, metric and
-decision rule were committed to the project's private development repository before its data existed. The public
+decision rule were committed to the project's private development repository before its runs started. The public
 release includes the dated protocol files but not that history, and such timestamps are self-attested. The selection diagnostic of Section~\ref{sec:selection} is post hoc. We
 report every run, including non-transitions. Two deviations from the protocols occurred: the dense diagnostic runs on
 seed 123 moved from one cloud provider to another (same GPU type and code) because no capacity was available, and we

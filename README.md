@@ -84,7 +84,16 @@ python3 paper/make_tables.py               # appendix all-runs table
 python3 experiments/m5_results/summarize.py
 ```
 
-Training a model needs one GPU (we used an NVIDIA L40S) and the command recorded in that run's `manifest.json`.
+Training a model needs one GPU (we used an NVIDIA L40S). The stored manifests record the original cloud commands;
+to retrain a run locally, turn its manifest into a portable command (printed, not executed):
+
+```bash
+python3 experiments/reproduce_m5.py experiments/m5_results/runs/hier-s6-s123/manifest.json \
+  --out-root ./reproduction-results --cache-dir ./fresh-cache-hier-s6-s123
+```
+
+The portable runner uses the same recipe (`--task mqar --precision tf32`) but is not the original cloud runner and has
+not been checked for numerical equivalence. Details and limits: [docs/m5-portable-reproduction.md](docs/m5-portable-reproduction.md).
 `experiments/test_hier_arms.py` compares against a commit of the original development repository; outside it, that
 check reports itself as skipped.
 

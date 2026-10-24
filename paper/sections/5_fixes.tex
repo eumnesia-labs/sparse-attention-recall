@@ -5,8 +5,9 @@ Before M5 we tested whether the cheapest setting could be repaired without spend
 were plausible. First, the super-block scores feed only a hard top-$k$, so they receive no direct gradient from the
 loss (the shared query and key projections still learn through the other branches). Second, super-block summaries
 are mean-pooled, which may blur the single key a query needs. We pre-registered three variants at the same budget
-($S_1{=}2$, $K{=}4$): a \emph{router gate} that adds a log-sigmoid of the selected super-block score to the fine
-attention logits, giving the parent scores a gradient path; \emph{max-pooled} super-block summaries; and both. All
+($S_1{=}2$, $K{=}4$): a \emph{router gate} that adds a log-sigmoid of each selected super-block's score to the logits of its
+child blocks in the coarse branch and of their tokens in the fine branch, giving the parent scores a gradient path
+(the hard top-$k$ choices still use the ungated scores); \emph{max-pooled} super-block summaries; and both. All
 four arms trained on identical data from identical initial weights (seed 123, M4 profile), and a fix counted as a
 recovery only if it gained at least 0.10 held-out recall.
 

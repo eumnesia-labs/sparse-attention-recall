@@ -51,6 +51,7 @@ dense run validation loss reached its minimum between epochs 16 and 21 and then 
 loss kept falling, to about 7.2 against about 8.1 on validation, a pattern consistent with memorising the 20{,}000
 training sequences. We did not test either explanation, and we did not change the recipe after seeing the data. The comparison is also not perfectly matched: the dense baseline applies dropout 0.1 inside
 attention and the selector does not, and the two mixers differ in parameters (the selector adds branch gates).
-Either difference could affect when the transition arrives. Its consequence is concrete: on seeds 810001 and 810003 the selector learned (0.937 and 0.945 at
+Either difference could affect when the transition arrives, and MQAR outcomes are known to be sensitive to the
+learning rate~\cite{okpekpe2025revisiting}, which we did not tune per model. Its consequence is concrete: on seeds 810001 and 810003 the selector learned (0.937 and 0.945 at
 $S_1{=}6$) where full attention, on identical data and recipe, did not. It also means the study has a single valid
 dense-versus-selector pair (seed 810002), which is why we report its gaps as observations rather than estimates.
