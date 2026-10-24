@@ -103,6 +103,8 @@ check reports itself as skipped.
   Appendix "Earlier exploratory results") are not included.
 - Cloud storage locations and machine identifiers in run records are replaced by placeholders such as
   `<checkpoint-bucket>`.
+- One section of `docs/protocol-round2.md` (machine B, a screen of separate unpublished work that shares no runs
+  or results with the paper) and the development branch name are redacted.
 - Model checkpoints are not included; seeds, split hashes and code hashes in each manifest identify every run.
 
 ## Citation

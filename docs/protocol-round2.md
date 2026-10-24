@@ -1,11 +1,11 @@
 # Round 2 on AWS: pre-registration (frozen 2026-10-02, before any round-2 data)
 
-Branch `arch/bounded-index`. The run lists and rules are `experiments/round2a_plan.py` (machine A)
+Development branch. The run lists and rules are `experiments/round2a_plan.py` (machine A)
 and `experiments/round2b_plan.py` (machine B). They are frozen at the commit that adds this document,
 and each machine runs exactly that commit.
 
 This document is the frozen, dated revision of the M5 draft (`docs/protocol-m5-next-batch.md`, kept
-unchanged), plus a first screen of the new architecture. The owner approved two machines.
+unchanged), plus a screen of separate work (machine B, redacted here). The owner approved two machines.
 
 ## Why round 2
 
@@ -84,24 +84,10 @@ observational router telemetry. No corrected arm runs (draft rule 6).
 - the recall-vs-budget curve S1 = 2/4/6/12 at seed 123, with scored selector pairs/query 34/56/78/144;
 - the confirmation pairs.
 
-## Machine B: the new architecture's first screen
+## Machine B
 
-The indexed reader (`src/indexed_reader.py`): the Step C model of `docs/arch-gates.md` Amendment 1,
-unchanged.
-
-**Stage S, seed 123, in this order:** (λ_route, τ) = (1, 1), (0.1, 1), (1, 0.1).
-- Futility rule: at epoch 10, validation candidate support recall < 0.01 stops training. Held-out
-  evaluation still runs.
-
-This is a **one-seed screen, not the Step C verdict.** Reported against machine A's dense@123 and
-hier@123 (same data):
-- overall held-out accuracy;
-- in-window and out-of-window accuracy;
-- retrieval-layer candidate support recall;
-- index telemetry.
-
-Setting selection, for a later three-seed confirmation on 810001–3 with its own budget, uses
-validation only. Step C stays INCONCLUSIVE until a pre-registered three-seed comparison is run.
+*[Redacted from this public release: a one-seed screen of separate, unpublished work. It shares no
+runs, models or results with the paper.]*
 
 ## Machines, budget, holding
 
@@ -114,7 +100,7 @@ validation only. Step C stays INCONCLUSIVE until a pre-registered three-seed com
   - Each machine moves its hard backstop to the remaining budget ÷ (rate × machines spending now).
 - **Estimates, with no early stopping assumed:**
   - A: pilot ~$37 and confirmation ~$28–35 (TF32 smoke timings);
-  - B: ~$59 for three indexed runs of ~10.4 h each (fewer with futility or early stopping);
+  - B: ~$59 (redacted screen);
   - total ~$124–131 against ~$140 left when round 2 starts. It is tight; the budget hold asks the
     owner before the cap.
 - The smoke runs every kind alone. The concurrency sets are not repeated: round 1b's smoke on this
@@ -127,7 +113,6 @@ validation only. Step C stays INCONCLUSIVE until a pre-registered three-seed com
 ## Not claimed
 
 - Anything about spread (position-free) retrieval.
-- A Step C verdict.
 - Speed or O(n) wall-clock.
 - Lengths beyond 2048.
 - Pooling with legacy float32 results.

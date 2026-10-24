@@ -143,7 +143,7 @@ every S1 qualified, and **rule P chose S1=2 vacuously**. It was applied as writt
 
 ## Provenance
 
-- **Code:** `arch/bounded-index` commit `301648d2f932e2dd86dcc98a3c4b8a337822140b` ([`round2a-code.json`](round2a-code.json)).
+- **Code:** the development branch commit `301648d2f932e2dd86dcc98a3c4b8a337822140b` ([`round2a-code.json`](round2a-code.json)).
   - Runner: `experiments/round_runner.py`. Plan: `experiments/round2a_plan.py`. Per-run script:
     `experiments/m4_routing_arms.py`. Launcher: `experiments/aws_round.py`.
   - The tarball the machine ran is `s3://<checkpoint-bucket>/round2a/code/301648d2f932e2dd86dcc98a3c4b8a337822140b.tar.gz`.

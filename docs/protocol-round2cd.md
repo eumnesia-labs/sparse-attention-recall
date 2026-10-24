@@ -2,7 +2,7 @@
 
 Frozen 2026-10-05, before any round-2c/2d data. Owner-approved: two machines, cap $175.
 
-**Code:** `arch/bounded-index` commit `f7269dde1feb7001a060d3e10f7352c16678969e`
+**Code:** the development branch commit `f7269dde1feb7001a060d3e10f7352c16678969e`
 (`experiments/round2c_plan.py`, `experiments/round2d_plan.py`, `experiments/round_runner.py`).
 Each machine runs exactly that commit. The tarballs are in `s3://<checkpoint-bucket>/round2c/code/` and
 `.../round2d/code/`.

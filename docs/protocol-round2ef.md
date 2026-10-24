@@ -2,7 +2,7 @@
 
 Frozen 2026-10-06, before any round-2e/2f data. Owner-approved 2026-10-06, on AWS, under the existing $175 cap.
 
-**Code:** `arch/bounded-index` commit `03dee3ec86c85d53fab0fbf2c0dcb97f29fbec3b`
+**Code:** the development branch commit `03dee3ec86c85d53fab0fbf2c0dcb97f29fbec3b`
 (`experiments/round2e_plan.py`, `experiments/round2f_plan.py`, `experiments/round_runner.py`). Every machine runs
 exactly that commit. The tarballs are in `s3://<checkpoint-bucket>/round2e/code/` and `.../round2f/code/`.
 Build check: `audits/verify-round2ef-build-2026-10-06/` on the branch (tests Q22, Q20, Q18 pass).
