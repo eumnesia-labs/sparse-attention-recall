@@ -2,7 +2,7 @@
 \label{sec:limitations}
 
 \paragraph{A positional shortcut in the task.} Zoology's MQAR places every key in the first 256 tokens, so the
-coarse level can be solved by preferring early super-blocks (\S\ref{sec:selection}). Conclusions about $S_1$ may not
+coarse level can be solved by preferring early super-blocks (Section~\ref{sec:selection}). Conclusions about $S_1$ may not
 transfer to tasks whose keys are spread across the context. We built a variant with keys placed anywhere, but dense
 attention did not learn it under this recipe (recall 0.0002--0.0044, near chance, across four variants), so it could not serve
 as a test. A learnable shortcut-free task is the most important next step.
@@ -29,14 +29,14 @@ none; the selector has extra gate parameters. Either could contribute to the dif
 
 \paragraph{The budget knob is not a pure intervention.} Raising $S_1$ also enlarges the set of blocks the fine level
 chooses from, and on this task the parent level can be solved by position, so the budget curve mainly reflects how
-reliably the fine choice is learned (\S\ref{sec:budget}). Flat block selection was run only as $S_1{=}12$, on one seed
+reliably the fine choice is learned (Section~\ref{sec:budget}). Flat block selection was run only as $S_1{=}12$, on one seed
 per profile, so whether the hierarchy helps or costs recall is not settled. The fine budget $K$ was fixed at 4; a
-post-hoc probe suggests it matters more than $S_1$ (\S\ref{sec:selection}).
+post-hoc probe suggests it matters more than $S_1$ (Section~\ref{sec:selection}).
 
 \paragraph{No speed claim.} Selector scores per query is a count, not runtime. Without a fused kernel our selector
 was slower than dense attention at every budget (Table~\ref{tab:cost}).
 
-\paragraph{Mechanism evidence is post hoc.} The selection diagnostic (\S\ref{sec:selection}) replays trained models
-and describes their choices; it does not intervene on them. The repair screen (\S\ref{sec:fixes}), the distance
-analysis and the budget probe use one M4-profile checkpoint per arm, and their explanations account for the numbers
-arithmetically rather than causally.
+\paragraph{Mechanism evidence is post hoc.} The selection diagnostic (Section~\ref{sec:selection}) replays trained models
+and describes their choices; it does not intervene on them. The repair screen (Section~\ref{sec:fixes}), the branch
+ablation and the budget probe use one M4-profile checkpoint per arm, the distance analysis uses one M5-profile model,
+and their explanations account for the numbers arithmetically rather than causally.

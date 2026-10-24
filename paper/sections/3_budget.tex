@@ -3,7 +3,7 @@
 
 We first trace recall against $S_1$ on the pilot seed, then test chosen settings on three untouched seeds against
 dense attention trained on identical data. All results in this section use the M5 profile (TF32, isolated data;
-\S\ref{sec:setup}), and $K{=}4$ throughout.
+Section~\ref{sec:setup}), and $K{=}4$ throughout.
 
 \subsection{The pilot curve}
 
@@ -31,7 +31,7 @@ dense      & -- & 0.010 & 0.010 (55) & never \\
 \caption{\textbf{On the pilot seed, recall rises from $S_1{=}2$ to $S_1{=}6$ and falls at $S_1{=}12$.} Seed 123,
 $L{=}2048$, $K{=}4$, M5 profile, one run per row. Selector scores per query are a count, not runtime. $S_1{=}12$ keeps
 all 12 super-blocks, which makes it effectively flat selection. Dense did not transition on this seed within 60
-epochs (\S\ref{sec:dense}).}
+epochs (Section~\ref{sec:dense}).}
 \label{tab:budget}
 \end{table}
 
@@ -42,7 +42,7 @@ those two super-blocks would lose no key at $S_1{=}2$, so pruning at the parent 
 information. What does change with $S_1$ is the fine level's candidate set: 22 blocks at $S_1{=}2$, 66 at $S_1{=}6$ and all 128 real blocks at $S_1{=}12$, of which at most 16 hold keys. A larger set nominally makes the fine choice harder, yet recall rose
 up to $S_1{=}6$. We therefore read the curve as a measure of how reliably the selector learns to choose at fixed $K$,
 not of information that pruning throws away. Section~\ref{sec:selection} shows what changes in the trained models: at $S_1{=}2$ they still
-miss the key's super-block on 5--14\% of queries, and from $S_1{=}4$ up they do not.
+miss the key's super-block on 4.5--14\% of queries, and from $S_1{=}4$ up they almost never do (at most 0.4\%).
 
 \subsection{On untouched seeds, $S_1{=}6$ beats $S_1{=}2$ every time but stays below dense}
 
@@ -70,7 +70,7 @@ Seed & dense & $S_1{=}2$ & $S_1{=}6$ & $S_1{=}6 - S_1{=}2$ & dense $-$ $S_1{=}6$
 \caption{\textbf{Paired on identical data, $S_1{=}6$ beat $S_1{=}2$ on every seed; where dense learned, it beat
 both.} Held-out recall; identical data within a seed. On seed 810002, dense $-$ $S_1{=}2$ is 0.291. $^\dagger$No
 transition within 60 epochs; gaps to a model that did not learn are not reported. Dense reruns in float32 on 123,
-810001 and 810003 are in \S\ref{sec:dense}. $S_1{=}6$ was chosen after the pilot, so its reserved-seed runs confirm a
+810001 and 810003 are in Section~\ref{sec:dense}. $S_1{=}6$ was chosen after the pilot, so its reserved-seed runs confirm a
 selected point.}
 \label{tab:reserved}
 \end{table}

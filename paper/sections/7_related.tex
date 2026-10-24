@@ -12,7 +12,7 @@ branches with trainable sparsity; our selector inherits NSA's three-branch layou
 training~\cite{lee2025hip}, HISA filters pooled blocks before refining to tokens~\cite{xu2026hisa}, gist-token methods
 learn chunk summaries and recursive summary hierarchies~\cite{mao2026gist}, and HiLS trains chunk-level retrieval scores
 through the language-model loss~\cite{hu2026hils}. Several of these papers vary their selection budget and report
-retrieval-sensitive benchmarks; HiLS evaluates multi-key retrieval in small models at matched sparse budgets. Our
+retrieval-sensitive benchmarks. Our
 selector is a simpler member of this family, and we claim no algorithmic novelty. HiLS is closest in spirit; it
 measures retrieval in small models under matched sparse budgets on RULER. We differ in scale and in protocol: one
 synthetic task, but a dense model on byte-identical splits for every comparison, untouched confirmation seeds, and

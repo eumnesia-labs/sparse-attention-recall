@@ -28,9 +28,9 @@ super-block ($S_1{=}12$) gave 0.850. Paired on identical data, $S_1{=}6$ beat $S
 0.291 and 0.055, so no setting met our pre-registered bar of 0.02. Because every key in this task lies in the first two
 super-blocks, the cheapest setting could in principle find the right super-block by position alone; we therefore read
 the curve as a measure of how reliably the selector learns at a fixed fine budget, not of information pruned away. Replaying
-every trained selector, recall was 0.978--1.000 whenever it chose the key's block, so errors followed wrong choices;
-at $S_1{=}2$ the models missed the key's super-block on 5--14\% of queries despite the shortcut, and from $S_1{=}4$ up
-those misses vanished. Two intuitive repairs chose the key's block more often yet lowered recall. Dense attention learned on
+the eleven trained selectors that learned, recall was 0.978--1.000 whenever one chose the key's block, so errors followed wrong choices;
+at $S_1{=}2$ the models missed the key's super-block on 4.5--14\% of queries despite the shortcut, and from $S_1{=}4$ up
+such misses fell to at most 0.4\%. Two intuitive repairs chose the key's block more often yet lowered recall. Dense attention learned on
 only two of four seeds within our training budget. We release code, protocols and all run records.
 \end{abstract}
 

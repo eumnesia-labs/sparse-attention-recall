@@ -2,9 +2,9 @@
 \label{app:runs}
 
 Table~\ref{tab:allruns} lists every run on the M5 profile together with the dense diagnostics of
-\S\ref{sec:dense}; it is generated from the committed run records by \texttt{paper/make\_tables.py}.
+Section~\ref{sec:dense}; it is generated from the committed run records by \texttt{paper/make\_tables.py}.
 Table~\ref{tab:m4runs} lists every run on the earlier M4 profile, whose checkpoints are analysed in
-\S\ref{sec:selection} and \S\ref{sec:fixes}. The two profiles are never pooled. Not listed: smoke tests, and one M4 launch cancelled at about epoch 13 when its
+Sections~\ref{sec:selection} and~\ref{sec:fixes}. The two profiles are never pooled. Not listed: smoke tests, and one M4 launch cancelled at about epoch 13 when its
 launching machine lost its session, which the protocol classes as incomplete.
 
 \input{sections/appendix_runs}
@@ -63,13 +63,13 @@ under \$2.
 \section{Earlier exploratory results}
 \label{app:history}
 
-Before the protocol of \S\ref{sec:setup} was fixed, the project ran exploratory experiments that report
+Before the protocol of Section~\ref{sec:setup} was fixed, the project ran exploratory experiments that report
 \emph{validation} recall from single runs with differing recipes. We list them for context only; none enters the
 results above. At length 128, attention reached 0.998 against 0.097 for a gated convolution, reproducing Zoology's
 recall gap. At length 2048, an unpruned selector ($S_1{=}12$) and dense attention both reached about 0.99 validation
 recall, while two recurrent baselines reached 0.558 and 0.193 (the first with a different learning rate). At length
 4096 every model, including dense attention, failed to learn. An early reading of these runs, that block sparsity
-alone caused the recall loss at length 2048, was retracted once budget sweeps showed recall rising with the budget.
+alone caused the recall loss at length 2048, was retracted once budget sweeps showed recall rising with the budget. These runs are not part of the public release.
 
 \section{Reproduction}
 \label{app:repro}
@@ -78,6 +78,6 @@ Code, frozen protocols, per-run manifests (seeds, SHA-256 split hashes, environm
 metrics, training logs, the selection-diagnostic scripts (\texttt{experiments/diagnose\_routing.py},
 \texttt{experiments/modal\_diagnose\_m5.py}) and their outputs, and the scripts that regenerate the figures
 and the appendix tables are at
-\url{https://github.com/eumnesia-labs/sparse-attention-recall}. Figures: \texttt{python3 paper/figures/make\_figures.py};
+\url{https://github.com/eumnesia-labs/sparse-attention-recall} (release v1.0, commit \texttt{abc9a9a}). Figures: \texttt{python3 paper/figures/make\_figures.py};
 appendix table: \texttt{python3 paper/make\_tables.py}; each results folder's \texttt{summarize*.py} regenerates its
 summary from raw records. Training a model requires one GPU and the commands recorded in each run's manifest.

@@ -2,9 +2,11 @@
 \label{sec:selection}
 
 To locate the loss we replayed the full held-out split (2{,}000 sequences, 256{,}000 queries) through all twelve
-selector checkpoints of \S\ref{sec:budget}, using each run's own numerics and data, and recorded for each query
-whether the retrieval layer selected the super-block and the fine block holding the queried key. Every replay first
-had to reproduce its run's recorded held-out accuracy, loss and split fingerprint; all twelve did so exactly. The
+selector checkpoints of Section~\ref{sec:budget}, using each run's own numerics and data, and recorded for each query
+whether the \emph{retrieval layer} (layer 1, the second of each model's two layers) selected the super-block and the
+fine block holding the queried key. Every replay first
+had to reproduce its run's recorded held-out accuracy, loss and split fingerprint; all twelve matched the split
+fingerprint exactly, the accuracy to within one query in 256{,}000 and the loss to within $3{\times}10^{-6}$. The
 analysis is descriptive and post hoc. Some finer probes below use earlier checkpoints from the M4 profile, labelled
 as such (Appendix~\ref{app:runs}, Table~\ref{tab:selection_m4}).
 
@@ -29,41 +31,47 @@ $S_1{=}6$ & 810003 & 0.945 & 0.996 & 0.748 & 1.000 & 0.781 \\
 $S_1{=}12$ (flat) & 123 & 0.850 & 1.000 & 0.846 & 1.000 & 0.028 \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Whenever the selector chose the key's block, the model answered correctly; from $S_1{=}4$ up it never
-missed the key's super-block.} All twelve M5-profile selector runs, retrieval layer, full held-out split.
+\caption{\textbf{When the selector chose the key's block, the eleven models that learned answered correctly 98--100\%
+of the time; from $S_1{=}4$ up they almost never (at most 0.4\%) missed the key's super-block.} All twelve M5-profile selector runs, retrieval layer, full held-out split.
 \emph{Parent hit}: the key's super-block was selected by at least one of the 4 heads; \emph{key-block hit}: the key's
 block was among the $K{=}4$ blocks selected by at least one head. $^\dagger$Never transitioned.}
 \label{tab:selection}
 \end{table}
 
 \paragraph{Reading is not the bottleneck at $K{=}4$.} For all eleven models that learned, recall was 0.978--1.000
-whenever the retrieval layer selected the key's block (Table~\ref{tab:selection}); on the M4-profile checkpoints the
-range was 0.993--1.000, and ablating the fine branch there dropped it to about 0.07, so correct answers come from
-reading the selected tokens. The bottleneck is finding the block.
+whenever the retrieval layer selected the key's block (Table~\ref{tab:selection}). On the M4-profile checkpoints it was
+0.997--1.000 (Table~\ref{tab:selection_m4}), or 0.993--1.000 including the repair arms of Section~\ref{sec:fixes}; on a
+64-sequence probe of those checkpoints, ablating the retrieval layer's fine branch dropped it to 0.04--0.08 for the
+baseline models, so correct answers come from reading the selected tokens. The bottleneck is finding the block.
 
-\paragraph{Why $S_1{=}6$ beats $S_1{=}2$: fewer wrong choices at both levels.} Although every key lies in super-blocks
+\paragraph{$S_1{=}6$ makes fewer wrong choices than $S_1{=}2$ at both levels.} Although every key lies in super-blocks
 0 and 1, the $S_1{=}2$ models missed the key's super-block on 4.5--14.1\% of queries (19.1\% for the run that never
-learned). From $S_1{=}4$ upward these parent misses vanished (at most 0.4\%): with room beyond two super-blocks, the
-right one was always kept. Fine-level choices improved too. Paired on the same seed, the key-block hit rate rose from
-0.463 to 0.962 (seed 123), from 0.570 to 0.933 (810001) and from 0.526 to 0.845 (810002); parent misses fell from
-0.13--0.14 to zero and fine-level misses from 0.30--0.40 to 0.04--0.16. Flat selection ($S_1{=}12$) never missed a
-parent but chose the key's block less often than $S_1{=}6$ on the pilot seed (0.846 against 0.962), all of the
-difference at the fine level, where it chooses among all past blocks rather than 66 candidates. That is one seed.
+learned). From $S_1{=}4$ upward (one seed at $S_1{=}4$) such parent misses fell to at most 0.4\%. Fine-level choices
+improved too; we call a query a \emph{fine-level miss} when the key's super-block was selected but the key's block
+was not. Paired on the same seed, the key-block hit rate rose from 0.463 to 0.962 (seed 123), from 0.570 to 0.933
+(810001) and from 0.526 to 0.845 (810002); parent misses fell from 0.13--0.14 to zero and fine-level misses from
+0.30--0.40 to 0.04--0.16. This is an accounting of where the misses occur, not a causal explanation. Flat selection
+($S_1{=}12$, whose parent hit is 1 by construction) chose the key's block less often than $S_1{=}6$ on the pilot seed
+(0.846 against 0.962), all of the difference at the fine level, where it chooses among all past blocks rather than
+up to 66 candidates. That is one seed.
 
 \paragraph{Recovering from a wrong choice is a seed-level property.} Recall after a key-block miss ranged from 0.002 to
-0.781 across models, with no pattern by budget (Table~\ref{tab:selection}). On the M4-profile $S_1{=}2$ checkpoint
-we examined this in detail: recall after a miss fell with the distance of the nearest selected block (0.76 at one
-block away, 0.61 at two, 0.43 at three to eight), consistent with reading neighbouring blocks; but 13.9\% of its
-queries had no selected block within eight blocks of the key and were still answered correctly 33\% of the time, so
-some answers must come from another route, plausibly the coarse branch's attention over block summaries. We did not
-isolate it.
+0.781 across models, with no pattern by budget (Table~\ref{tab:selection}); on seed 810002, for example, answers after
+a miss add about 0.10 to the $S_1{=}6$ model's recall. For the $S_1{=}2$ pilot model, recall after a miss fell with the
+distance from the key's block to the nearest selected block at or after it (0.89 at one block, 0.61 at two, 0.21 at
+three to eight), consistent with reading neighbouring blocks; but 20.5\% of its queries had no selected block from the
+key's block to eight blocks after it, and 26\% of those were still answered correctly, so some answers come by
+another route. On the M4-profile $S_1{=}2$ checkpoint (64-sequence probe), ablating the retrieval layer's coarse
+branch left such distant-miss answers unchanged (0.382), while ablating its fine branch removed most of them
+(0.055); this is consistent with the first layer copying key information into the blocks that were selected, which
+we did not test directly.
 
 \paragraph{The parent level can be solved by position.} In this MQAR layout every key lies in the first 256 tokens,
 i.e.\ in super-blocks 0 and 1. A selector can therefore reach a high parent hit rate by preferring early
 super-blocks instead of matching content: on the M4 profile, for queries at positions of 528 or more, 92.8\% of the
-parent choices of one variant in \S\ref{sec:fixes} were exactly super-blocks $\{0, 1\}$. \textbf{Conclusions about
-the parent budget $S_1$ may not transfer to tasks whose keys are spread across the context.} We return to this in
-\S\ref{sec:limitations}.
+parent choices of the combined router-gate and max-pool arm of Section~\ref{sec:fixes} were exactly super-blocks
+$\{0, 1\}$. \textbf{Conclusions about the parent budget $S_1$ may not transfer to tasks whose keys are spread across
+the context.} We return to this in Section~\ref{sec:limitations}.
 
 \paragraph{The fine budget matters more than the parent budget, post hoc.} Changing the budgets of an M4-profile
 checkpoint at inference only, on a 64-sequence subset (8{,}192 queries; hence 0.580 here against the full-split 0.594 in
